@@ -1,0 +1,119 @@
+# COMMIT PLAN — DELIVERABLE_HEADER_SPECIFICATION ONLY
+# (BROKEN INTO SMALL, OBVIOUS, HUMAN-EXECUTABLE COMMITS)
+
+# ============================================================
+# COMMIT 1 — Add ARTIFACT_DOMAIN field definition
+# ============================================================
+
+WHAT THIS COMMIT DOES (ONLY):
+- Introduce ARTIFACT_DOMAIN as a REQUIRED header field
+- Define its purpose as canonical repository selection
+- Explicitly refuse authority, ownership, lifecycle, or ordering semantics
+
+FILES TOUCHED:
+- DELIVERABLE_HEADER_SPECIFICATION
+
+WHY THE DIFF IS OBVIOUS:
+- One new field section is added
+- No existing fields are modified
+- No examples are changed
+
+COMMIT MESSAGE:
+Add ARTIFACT_DOMAIN to DELIVERABLE_HEADER_SPECIFICATION
+
+
+# ============================================================
+# COMMIT 2 — Add ARTIFACT_ID field definition
+# ============================================================
+
+WHAT THIS COMMIT DOES (ONLY):
+- Introduce ARTIFACT_ID as a REQUIRED header field
+- Define it as the stable, opaque identity of a specific artifact
+- State that ARTIFACT_ID is the sole source of truth for filename derivation
+- Explicitly refuse semantic, authority, lifecycle, or status meaning
+
+FILES TOUCHED:
+- DELIVERABLE_HEADER_SPECIFICATION
+
+WHY THE DIFF IS OBVIOUS:
+- One new field section is added
+- No routing grammar or examples are changed yet
+
+COMMIT MESSAGE:
+Add ARTIFACT_ID to DELIVERABLE_HEADER_SPECIFICATION
+
+
+# ============================================================
+# COMMIT 3 — Clarify ARTIFACT_FUNCTION scope (de-overload)
+# ============================================================
+
+WHAT THIS COMMIT DOES (ONLY):
+- Update the existing ARTIFACT_FUNCTION definition
+- Explicitly state that it describes role / kind only
+- Explicitly prohibit its use for identity or filename derivation
+
+FILES TOUCHED:
+- DELIVERABLE_HEADER_SPECIFICATION
+
+WHY THE DIFF IS OBVIOUS:
+- Only the ARTIFACT_FUNCTION section is edited
+- No new fields are added
+- No examples are changed
+
+COMMIT MESSAGE:
+Clarify ARTIFACT_FUNCTION as role descriptor only
+
+
+# ============================================================
+# COMMIT 4 — Document deterministic placement grammar
+# ============================================================
+
+WHAT THIS COMMIT DOES (ONLY):
+- Add or update a short section describing deterministic placement
+- State the mapping explicitly:
+    ARTIFACT_DOMAIN   → repository
+    ARTIFACT_FUNCTION → path class
+    ARTIFACT_ID       → filename
+    ARTIFACT_FORMAT   → extension
+
+FILES TOUCHED:
+- DELIVERABLE_HEADER_SPECIFICATION
+
+WHY THE DIFF IS OBVIOUS:
+- One explanatory section is added or updated
+- No field definitions are changed
+
+COMMIT MESSAGE:
+Document deterministic placement grammar in header specification
+
+
+# ============================================================
+# COMMIT 5 — Update header template example
+# ============================================================
+
+WHAT THIS COMMIT DOES (ONLY):
+- Update the example <DELIVERABLE_HEADER> block
+- Add the following fields to the template:
+    ARTIFACT_DOMAIN:
+    ARTIFACT_ID:
+
+FILES TOUCHED:
+- DELIVERABLE_HEADER_SPECIFICATION
+
+WHY THE DIFF IS OBVIOUS:
+- Only the example header block changes
+- No prose or field definitions are modified
+
+COMMIT MESSAGE:
+Update header template to include ARTIFACT_DOMAIN and ARTIFACT_ID
+
+
+# ============================================================
+# EXECUTION NOTES
+# ============================================================
+
+- Each commit is independently reviewable and reversible
+- You may stop after any commit and remain in a valid state
+- No downstream artifacts are touched
+- No migration or normalization is implied
+- Scope is strictly limited to the header specification
