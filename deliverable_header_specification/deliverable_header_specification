@@ -141,6 +141,40 @@ ARTIFACT_DOMAIN is a routing selector, not a jurisdictional or governance
 claim. Its sole function is to enable deterministic artifact placement
 across storage systems (e.g., GitHub, local filesystems, mirrors).
 
+ARTIFACT_ID
+
+Definition:
+Identifies a specific artifact instance.
+
+Purpose:
+Provides a stable, opaque identifier for the artifact that is independent
+of artifact role, repository, or storage system.
+
+Encodes:
+• Artifact identity
+
+Does NOT encode:
+• Artifact role or kind
+• Authority
+• Ownership
+• Governance scope
+• Lifecycle state
+• Ordering, versioning, or priority
+• Semantic meaning
+
+Constraints:
+• Exactly one value
+• Atomic and non-composite
+• Stable under reuse, relocation, and copying
+• Must be sufficient to uniquely identify the artifact within its domain
+• Must not require inference, context, or external lookup to interpret
+
+Notes:
+ARTIFACT_ID is the sole source of truth for artifact filename derivation
+across storage systems (e.g., GitHub, local filesystems, mirrors). It is
+intentionally opaque and must not be overloaded with semantic meaning.
+
+
 ────────────────────────────────────────
 OPTIONAL COLLABORATION FIELD
 ────────────────────────────────────────
