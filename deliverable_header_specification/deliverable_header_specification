@@ -108,6 +108,39 @@ Declares the situational context under which the artifact was produced.
 Describes circumstances or constraints, not evaluation or outcome.  
 Must not encode time, version, order, acceptance, or success.
 
+ARTIFACT_DOMAIN
+
+Definition:
+Declares the canonical repository domain to which the artifact belongs.
+
+Purpose:
+Provides a declared, non-inferential routing input sufficient to
+deterministically select the canonical repository for the artifact.
+
+Encodes:
+• Canonical repository selection
+
+Does NOT encode:
+• Authority
+• Ownership
+• Governance scope
+• Lifecycle state
+• Ordering or priority
+• Enforcement
+• Semantic meaning
+
+Constraints:
+• Exactly one value
+• Atomic and non-composite
+• Non-hierarchical
+• Stable under reuse and relocation
+• Must not require external context or inference to interpret
+
+Notes:
+ARTIFACT_DOMAIN is a routing selector, not a jurisdictional or governance
+claim. Its sole function is to enable deterministic artifact placement
+across storage systems (e.g., GitHub, local filesystems, mirrors).
+
 ────────────────────────────────────────
 OPTIONAL COLLABORATION FIELD
 ────────────────────────────────────────
