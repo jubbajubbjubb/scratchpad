@@ -161,20 +161,24 @@ ARTIFACT_ID
 
 ARTIFACT_ID declares the stable identity of an artifact.
 
-It exists to uniquely identify an artifact independently of its role,
-format, location, or lifecycle.
+It is a human-chosen identifier selected for clarity and reference.
+Tooling and orchestration MUST treat the value as opaque and MUST NOT
+interpret internal structure, wording, or apparent meaning.
+
+ARTIFACT_ID exists to uniquely identify an artifact independently of its
+role, format, location, or lifecycle.
 
 ARTIFACT_ID:
-• is opaque and non-semantic
+• is treated as opaque by machines
 • does not convey authority
-• does not imply behavior or interpretation
-• is stable across revisions and relocations
+• remains stable across revisions and relocations
 
 ARTIFACT_ID is the sole source of truth for artifact identity.
 
-This field may be referenced by routing or naming rules but is not
-required to appear in a deliverable header at this stage.
-
+This field may be referenced by routing or naming rules.
+Omission is permitted only for legacy deliverable artifacts created
+before adoption of this specification; newly created artifacts are
+expected to include this field.
 
 ARTIFACT_FORMAT
 ---------------
