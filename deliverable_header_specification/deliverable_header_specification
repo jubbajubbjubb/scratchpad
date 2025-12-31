@@ -180,6 +180,14 @@ This grammar is normative and declarative.
 Any deviation from this mapping is incorrect by definition, regardless
 of tooling availability or enforcement status.
 
+Placement is a pure, total function of the deliverable header.
+Given a valid header, the repository, path, filename, and extension are
+uniquely determined.
+Missing or invalid required fields cause placement to fail; no defaults,
+fallbacks, or judgment are permitted.
+Folder creation is a deterministic side effect of placement, not a
+decision.
+
 The placement of an artifact is derived as follows:
 
 • ARTIFACT_DOMAIN determines the canonical repository
