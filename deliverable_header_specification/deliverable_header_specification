@@ -87,6 +87,25 @@ Declares what the artifact is, at an identity level.
 Distinguishes specification versus instance where relevant.  
 Must not encode usage, lifecycle, authority, or correctness.
 
+ARTIFACT_ID
+-----------
+
+ARTIFACT_ID declares the stable identity of an artifact.
+
+It exists to uniquely identify an artifact independently of its
+role, format, location, or lifecycle.
+
+ARTIFACT_ID:
+• is opaque and non-semantic
+• does not convey authority
+• does not imply behavior or interpretation
+• is stable across revisions and relocations
+
+ARTIFACT_ID is the sole source of truth for artifact identity.
+
+This field may be referenced by routing or naming rules but is not
+required to appear in a deliverable header at this stage.
+
 ARTIFACT_DOMAIN
 ---------------
 
