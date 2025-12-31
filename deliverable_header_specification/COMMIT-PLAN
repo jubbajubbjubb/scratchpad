@@ -198,6 +198,7 @@ OUTPUT:
 PURPOSE:
 - Update the deliverable_header_specification’s own header
   to fully comply with the canonical DELIVERABLE_HEADER_SPECIFICATION
+- Values remain blank prior to deployment
 
 SCOPE:
 - Header only
@@ -205,7 +206,6 @@ SCOPE:
 
 REQUIREMENTS:
 - All required header fields present
-- Field values must be truthful and current
 - COLLABORATION field included only if warranted
 
 EXPLICITLY FORBIDDEN:
