@@ -213,6 +213,99 @@ EXPLICITLY FORBIDDEN:
 - Semantic changes
 - Retroactive reinterpretation
 
+
+COMMIT 8 — Clarify Human vs Machine Interpretation of Header Fields
+------------------------------------------------------------------
+
+PURPOSE:
+Introduce an explicit audience distinction clarifying how header field
+constraints apply to tooling versus human authors.
+
+RATIONALE:
+The specification currently describes header fields as opaque and
+non-semantic without explicitly stating that this constraint applies to
+machine interpretation. This can mislead human authors into believing
+they must avoid meaningful judgment when selecting values.
+
+SCOPE:
+- Add a short, explicit “Human vs Machine Interpretation” paragraph
+  near the top of the specification (after Purpose or as its own
+  clearly labeled subsection).
+- No changes to individual field definitions.
+- No changes to placement grammar, invariants, or examples.
+
+NON-GOALS:
+- No semantic changes to any field.
+- No new requirements or enforcement mechanisms.
+- No rewording of ARTIFACT_ID or ARTIFACT_FUNCTION.
+
+COMMIT MESSAGE (candidate):
+Clarify human vs machine interpretation of header fields
+
+
+
+COMMIT 9 — Reframe ARTIFACT_ID as Human-Chosen, Machine-Opaque
+--------------------------------------------------------------
+
+PURPOSE:
+Reword the ARTIFACT_ID definition to make human responsibility explicit
+while preserving strict machine opacity and non-inferential treatment.
+
+RATIONALE:
+Leading with “opaque and non-semantic” is technically correct but
+miscommunicates intent to human readers. ARTIFACT_ID values are chosen
+by humans for clarity and reference; the constraint is that machines
+must not interpret or infer meaning from them.
+
+SCOPE:
+- Modify the ARTIFACT_ID definition text only.
+- Emphasize:
+  • human selection
+  • stability
+  • machine non-interpretation
+- Preserve all existing constraints (no authority, no behavior, no
+  lifecycle semantics).
+
+NON-GOALS:
+- No change to placement rules.
+- No change to filename derivation.
+- No change to required/optional status.
+- No renaming of the field.
+
+COMMIT MESSAGE (candidate):
+Reframe ARTIFACT_ID as human-chosen, machine-opaque identifier
+
+
+
+COMMIT 10 — Clarify ARTIFACT_FUNCTION as Path Classifier
+-------------------------------------------------------
+
+PURPOSE:
+Align the ARTIFACT_FUNCTION definition with its actual role in
+deterministic routing as clarified by GOV – Archivist.
+
+RATIONALE:
+ARTIFACT_FUNCTION has been misread as a behavioral or descriptive field.
+It is, in fact, a placement-critical path classifier selected by a human
+author and used by tooling solely to determine directory placement.
+
+SCOPE:
+- Reword the ARTIFACT_FUNCTION definition text.
+- Make explicit that:
+  • it is selected by a human
+  • it classifies artifacts for placement
+  • it does not describe behavior, usage, or lifecycle
+- Ensure consistency with the deterministic placement grammar.
+
+NON-GOALS:
+- No change to routing mechanics.
+- No new placement rules.
+- No semantic expansion beyond clarification.
+- No changes to ARTIFACT_GROUP.
+
+COMMIT MESSAGE (candidate):
+Clarify ARTIFACT_FUNCTION as human-selected path classifier
+
 COMMIT MESSAGE:
 Reemit deliverable_header_specification header to match canonical format
 
