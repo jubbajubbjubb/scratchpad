@@ -162,6 +162,30 @@ Declares the situational context under which the artifact was produced.
 Describes circumstances or constraints, not evaluation or outcome.  
 Must not encode time, version, order, acceptance, or success.
 
+DETERMINISTIC PLACEMENT GRAMMAR
+-------------------------------
+
+This section defines the only valid deterministic mapping from
+deliverable header fields to artifact placement.
+
+This grammar is normative and declarative.
+
+Any deviation from this mapping is incorrect by definition, regardless
+of tooling availability or enforcement status.
+
+The placement of an artifact is derived as follows:
+
+• ARTIFACT_DOMAIN determines the canonical repository
+• ARTIFACT_FUNCTION determines the path class within the repository
+• ARTIFACT_ID determines the filename
+• ARTIFACT_FORMAT determines the file extension
+
+No other fields may be used for placement derivation.
+
+If a required field for placement is absent, placement is undefined
+and the artifact is non-conforming.
+
+
 ────────────────────────────────────────
 OPTIONAL COLLABORATION FIELD
 ────────────────────────────────────────
