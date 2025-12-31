@@ -82,10 +82,25 @@ REQUESTED_BY
 Identifies the role or actor that requested production of the artifact.  
 Encodes request provenance only and does not imply approval or acceptance.
 
-ARTIFACT_FUNCTION  
-Declares what the artifact is, at an identity level.  
-Distinguishes specification versus instance where relevant.  
-Must not encode usage, lifecycle, authority, or correctness.
+ARTIFACT_FUNCTION
+-----------------
+
+ARTIFACT_FUNCTION is a declarative label that identifies the structural
+role or kind of an artifact.
+
+It answers the question:
+“What structural role does this artifact play?”
+
+ARTIFACT_FUNCTION:
+• does not identify an artifact
+• must not be used for filename derivation
+• must not be used for routing or placement
+• must not be treated as a stable identifier
+
+Any use of ARTIFACT_FUNCTION for identity or filename purposes is
+incorrect.
+
+ARTIFACT_ID is the sole source of truth for artifact identity.
 
 ARTIFACT_ID
 -----------
