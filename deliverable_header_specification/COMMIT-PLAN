@@ -117,3 +117,101 @@ Update header template to include ARTIFACT_DOMAIN and ARTIFACT_ID
 - No downstream artifacts are touched
 - No migration or normalization is implied
 - Scope is strictly limited to the header specification
+
+# POST–COMMIT 5 EXTENSION — DELIVERABLE_HEADER_SPECIFICATION
+
+# ============================================================
+# NON-COMMIT — Sanity Check #1 (Consistency Review)
+# ============================================================
+
+PURPOSE:
+- Perform a human reasoning pass over the current
+  DELIVERABLE_HEADER_SPECIFICATION
+- Verify internal consistency only:
+  • Field definitions do not contradict one another
+  • Required fields match the header template
+  • Deterministic placement mapping aligns with field meanings
+  • Style guidance does not introduce semantic implications
+
+RULES:
+- No edits
+- No commits
+- No artifact changes
+- Notes may be recorded externally only
+
+OUTPUT:
+- Proceed or identify issues before formatting changes
+
+
+# ============================================================
+# COMMIT 6 — Normalize Content (Formatting Only)
+# ============================================================
+
+SCOPE:
+- Formatting, spacing, and layout normalization
+- Whitespace cleanup
+- Bullet and list consistency
+- Section and heading alignment (readability only)
+
+EXPLICITLY FORBIDDEN:
+- Changing semantic meaning
+- Adding or removing sentences
+- Renaming fields
+- Rewording definitions
+- Tightening or loosening constraints
+- Adding examples or guidance
+
+LITMUS TEST:
+- A reviewer may conclude “this is clearer or cleaner to read”
+- A reviewer must NOT conclude “this says something new”
+
+COMMIT MESSAGE:
+Normalize formatting in DELIVERABLE_HEADER_SPECIFICATION
+
+
+# ============================================================
+# NON-COMMIT — Sanity Check #2 (Post-Normalization)
+# ============================================================
+
+PURPOSE:
+- Verify Commit 6 introduced zero semantic drift
+- Re-read as a first-time reader
+- Confirm:
+  • No accidental emphasis or implication was introduced
+  • Constraints remain explicit
+  • Header remains a fact surface, not a decision surface
+
+RULES:
+- No edits
+- No commits
+- No artifact changes
+
+OUTPUT:
+- Confirm readiness for self-reemission
+
+
+# ============================================================
+# COMMIT 7 — Reemit Specification Header (Self-Compliance)
+# ============================================================
+
+PURPOSE:
+- Update the deliverable_header_specification’s own header
+  to fully comply with the canonical DELIVERABLE_HEADER_SPECIFICATION
+
+SCOPE:
+- Header only
+- Body content remains untouched
+
+REQUIREMENTS:
+- All required header fields present
+- Field values must be truthful and current
+- COLLABORATION field included only if warranted
+
+EXPLICITLY FORBIDDEN:
+- Body edits
+- Semantic changes
+- Retroactive reinterpretation
+
+COMMIT MESSAGE:
+Reemit deliverable_header_specification header to match canonical format
+
