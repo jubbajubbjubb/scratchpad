@@ -152,6 +152,7 @@ SCOPE:
 - Whitespace cleanup
 - Bullet and list consistency
 - Section and heading alignment (readability only)
+- Re-order field sections to match the order of the fields in the example
 
 EXPLICITLY FORBIDDEN:
 - Changing semantic meaning
