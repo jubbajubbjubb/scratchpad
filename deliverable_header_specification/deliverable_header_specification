@@ -138,22 +138,16 @@ to appear in a deliverable header at this stage.
 ARTIFACT_FUNCTION
 -----------------
 
-ARTIFACT_FUNCTION is a declarative label that identifies the structural
-role or kind of an artifact.
+ARTIFACT_FUNCTION declares the class of responsibility an artifact
+belongs to for purposes of deterministic placement.
 
-It answers the question:
-“What structural role does this artifact play?”
+The value is selected by a human author and is used by tooling solely to
+determine the path class (directory or directory tree) under which the
+artifact is placed.
 
 ARTIFACT_FUNCTION:
 • does not identify an artifact
-• must not be used for filename derivation
-• must not be used for routing or placement
-• must not be treated as a stable identifier
-
-Any use of ARTIFACT_FUNCTION for identity or filename purposes is
-incorrect.
-
-ARTIFACT_ID is the sole source of truth for artifact identity.
+• does not convey authority
 
 
 ARTIFACT_ID
