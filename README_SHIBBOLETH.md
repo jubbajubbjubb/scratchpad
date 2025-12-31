@@ -16,11 +16,11 @@ Before proceeding, ask the chat to emit the contents of the shibboleth file:
 
 https://raw.githubusercontent.com/<org>/<repo>/main/<shibboleth-filename>
 
-Use the following instruction verbatim:
+Use the following instruction verbatim, specific to this repo:
 
 --------------------------------------------------------
 Emit the NONCE value (and nothing else) from:
-https://raw.githubusercontent.com/<org>/<repo>/main/<shibboleth-filename>
+https://raw.githubusercontent.com/jubbajubbjubb/scratchpad/refs/heads/main/GITHUB_READ_SHIBBOLETH
 
 Do not proceed beyond this instruction until further directed.
 --------------------------------------------------------
