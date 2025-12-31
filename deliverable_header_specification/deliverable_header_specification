@@ -26,19 +26,25 @@ COLLABORATION:
 
 </DELIVERABLE_HEADER>
 
+
 ────────────────────────────────────────
 EXPLANATION
 ────────────────────────────────────────
 
 Deliverable Header Specification — Canonical Definition
 
-Purpose  
+
+────────────────────────────────────────
+PURPOSE
+────────────────────────────────────────
+
 This artifact defines the required header structure and fields for
 deliverable artifacts.
 
 The header exists to make provenance, identity, expression, association,
 and situational context explicit, while deliberately refusing to encode
 authority, lifecycle, ordering, evaluation, or temporal semantics.
+
 
 ────────────────────────────────────────
 APPLICABILITY
@@ -48,11 +54,12 @@ This specification applies only to artifacts designated as deliverables
 within a delegated execution scope.
 
 It does not replace or override:
-• ledger headers  
-• protocol headers  
-• governance artifacts  
+• ledger headers
+• protocol headers
+• governance artifacts
 
 Reuse outside deliverable artifacts requires explicit declaration elsewhere.
+
 
 ────────────────────────────────────────
 HEADER STRUCTURE (NORMATIVE)
@@ -70,73 +77,26 @@ The deliverable body consists of all content following the closing
 
 No other markers are required to establish the header/body boundary.
 
+
 ────────────────────────────────────────
 REQUIRED HEADER FIELDS
 ────────────────────────────────────────
 
-All deliverable artifacts MUST include all of the following fields.
+All deliverable artifacts MUST include all of the following fields,
+in the order defined by the header structure.
 
-EMITTER  
-Identifies the role or chat instance that produced the artifact.  
+
+EMITTER
+
+Identifies the role or chat instance that produced the artifact.
 Encodes authorship and accountability only.
 
-REQUESTED_BY  
-Identifies the role or actor that requested production of the artifact.  
+
+REQUESTED_BY
+
+Identifies the role or actor that requested production of the artifact.
 Encodes request provenance only and does not imply approval or acceptance.
 
-ARTIFACT_FUNCTION  
-Definition:
-Declares the structural role or kind of the artifact.
-
-Purpose:
-Classifies what type of artifact this is for organizational and structural
-purposes only.
-
-Encodes:
-• Artifact role / kind
-
-Does NOT encode:
-• Artifact identity
-• Filename or naming semantics
-• Authority
-• Ownership
-• Governance scope
-• Lifecycle state
-• Ordering, versioning, or priority
-• Semantic meaning beyond classification
-
-Constraints:
-• Exactly one value
-• Identity-level classification only
-• Must not imply uniqueness
-• Multiple artifacts may share the same ARTIFACT_FUNCTION
-• Must not be used for filename derivation or artifact identity
-
-Notes:
-ARTIFACT_FUNCTION intentionally does not identify a specific artifact.
-It exists solely to describe the role or kind of an artifact and must
-remain independent from artifact identity and routing concerns.
-
-ARTIFACT_FORMAT  
-Declares the primary form in which the artifact is expressed.  
-Sets reader and parsing expectations only.
-
-ARTIFACT_GROUP  
-Declares one or more associative group labels for discoverability.  
-Groups are unordered and many-to-many.  
-Grouping does not imply priority, hierarchy, or replacement.
-
-ARTIFACT_GROUP values MUST be separated using a semicolon (`;`) delimiter.
-
-Example:
-ARTIFACT_GROUP: VIDEO_POKER_GUI; UI_OVERLAY; HAND_EVAL
-
-The order of group values is semantically meaningless.
-
-CREATED_IN_CONTEXT  
-Declares the situational context under which the artifact was produced.  
-Describes circumstances or constraints, not evaluation or outcome.  
-Must not encode time, version, order, acceptance, or success.
 
 ARTIFACT_DOMAIN
 
@@ -170,6 +130,7 @@ Notes:
 ARTIFACT_DOMAIN is a routing selector, not a jurisdictional or governance
 claim. Its sole function is to enable deterministic artifact placement
 across storage systems (e.g., GitHub, local filesystems, mirrors).
+
 
 ARTIFACT_ID
 
@@ -205,11 +166,74 @@ across storage systems (e.g., GitHub, local filesystems, mirrors). It is
 intentionally opaque and must not be overloaded with semantic meaning.
 
 
+ARTIFACT_FUNCTION
+
+Definition:
+Declares the structural role or kind of the artifact.
+
+Purpose:
+Classifies what type of artifact this is for organizational and structural
+purposes only.
+
+Encodes:
+• Artifact role / kind
+
+Does NOT encode:
+• Artifact identity
+• Filename or naming semantics
+• Authority
+• Ownership
+• Governance scope
+• Lifecycle state
+• Ordering, versioning, or priority
+• Semantic meaning beyond classification
+
+Constraints:
+• Exactly one value
+• Identity-level classification only
+• Must not imply uniqueness
+• Multiple artifacts may share the same ARTIFACT_FUNCTION
+• Must not be used for filename derivation or artifact identity
+
+Notes:
+ARTIFACT_FUNCTION intentionally does not identify a specific artifact.
+It exists solely to describe the role or kind of an artifact and must
+remain independent from artifact identity and routing concerns.
+
+
+ARTIFACT_FORMAT
+
+Declares the primary form in which the artifact is expressed.
+Sets reader and parsing expectations only.
+
+
+ARTIFACT_GROUP
+
+Declares one or more associative group labels for discoverability.
+Groups are unordered and many-to-many.
+Grouping does not imply priority, hierarchy, or replacement.
+
+ARTIFACT_GROUP values MUST be separated using a semicolon (`;`) delimiter.
+
+Example:
+ARTIFACT_GROUP: VIDEO_POKER_GUI; UI_OVERLAY; HAND_EVAL
+
+The order of group values is semantically meaningless.
+
+
+CREATED_IN_CONTEXT
+
+Declares the situational context under which the artifact was produced.
+Describes circumstances or constraints, not evaluation or outcome.
+Must not encode time, version, order, acceptance, or success.
+
+
 ────────────────────────────────────────
 OPTIONAL COLLABORATION FIELD
 ────────────────────────────────────────
 
-COLLABORATION  
+COLLABORATION
+
 Records a contributing collaborator and the context of their contribution.
 
 This field is OPTIONAL and MAY appear zero or more times.
@@ -218,7 +242,7 @@ Value format:
 COLLABORATION: <NAME> FREE-FORM CONTEXT TEXT
 
 Where:
-• `<NAME>` identifies the collaborating role, chat, or entity
+• <NAME> identifies the collaborating role, chat, or entity
 • All text following the closing `>` is free-form descriptive context
 
 Example:
@@ -226,10 +250,11 @@ COLLABORATION: <UI_BASE_LAYOUT_CHAT> INITIAL GEOMETRY PASS
 COLLABORATION: <ENGINEERING_REVIEW_CHAT> CONSTRAINT VALIDATION
 
 Rules:
-• Each COLLABORATION entry is independent  
-• Order carries no semantic meaning  
-• The field does NOT imply joint emission, approval, authority, or ownership  
-• The field records contribution context only  
+• Each COLLABORATION entry is independent
+• Order carries no semantic meaning
+• The field does NOT imply joint emission, approval, authority, or ownership
+• The field records contribution context only
+
 
 ────────────────────────────────────────
 LEGACY COMPATIBILITY
@@ -247,27 +272,30 @@ For such artifacts:
 
 All newly created deliverable artifacts MUST use the explicit header block.
 
+
 ────────────────────────────────────────
 INVARIANTS
 ────────────────────────────────────────
 
-• All required header fields are mandatory  
-• No header field may imply authority, lifecycle, or ordering  
-• Header values must remain truthful under reuse and reinterpretation  
-• Group delimiter choice carries no semantic meaning beyond separation  
-• COLLABORATION entries are descriptive and non-authoritative  
+• All required header fields are mandatory
+• No header field may imply authority, lifecycle, or ordering
+• Header values must remain truthful under reuse and reinterpretation
+• Group delimiter choice carries no semantic meaning beyond separation
+• COLLABORATION entries are descriptive and non-authoritative
+
 
 ────────────────────────────────────────
 NON-GOALS
 ────────────────────────────────────────
 
 This specification does not define:
-• canonization  
-• acceptance  
-• versioning  
-• rollback  
-• workflow  
-• enforcement  
+• canonization
+• acceptance
+• versioning
+• rollback
+• workflow
+• enforcement
+
 
 ────────────────────────────────────────
 VALUE STYLE GUIDANCE (NON-NORMATIVE)
@@ -279,21 +307,21 @@ do not impose semantic meaning, authority, or enforcement.
 
 Deviation from these conventions is permitted where clarity requires it.
 
+
 ----------------------------------------
 General Principles
 ----------------------------------------
 
-• Standardize shape, not meaning  
-• Prefer human-readable values over codes  
-• Avoid numbers, ordering, or lifecycle terms  
-• Avoid words that evaluate, judge, or imply status  
-• Treat all values as descriptive facts, not signals  
+• Standardize shape, not meaning
+• Prefer human-readable values over codes
+• Avoid numbers, ordering, or lifecycle terms
+• Avoid words that evaluate, judge, or imply status
+• Treat all values as descriptive facts, not signals
+
 
 ----------------------------------------
-Field-Specific Guidance
-----------------------------------------
-
 DETERMINISTIC ARTIFACT PLACEMENT
+----------------------------------------
 
 The deliverable header provides sufficient declared information to enable
 fully deterministic artifact placement without inference or external context.
@@ -318,50 +346,60 @@ header fields and must not infer placement decisions from artifact content,
 commit history, or external metadata.
 
 
+----------------------------------------
+Field-Specific Guidance
+----------------------------------------
 
-EMITTER  
-• Record the role or chat name exactly as it existed at the time of artifact creation  
-• Preserve capitalization, spelling, and wording as originally used  
-• Do not retroactively update values to reflect later renaming or restructuring  
-• Treat the value as historical provenance, not a canonical directory entry  
+EMITTER
+• Record the role or chat name exactly as it existed at the time of artifact creation
+• Preserve capitalization, spelling, and wording as originally used
+• Do not retroactively update values to reflect later renaming or restructuring
+• Treat the value as historical provenance, not a canonical directory entry
 
-REQUESTED_BY  
-• Record the requesting role or actor exactly as it existed at the time the request was made  
-• Preserve original capitalization, spelling, and wording  
-• Do not update values to reflect later role, title, or authority changes  
-• Treat the value as request provenance, not endorsement or approval  
 
-ARTIFACT_FUNCTION  
-• Use ALL CAPS with underscore separation  
-• Use noun phrases  
-• Describe what the artifact is, not what it does  
-• Avoid lifecycle, status, or preference language  
+REQUESTED_BY
+• Record the requesting role or actor exactly as it existed at the time the request was made
+• Preserve original capitalization, spelling, and wording
+• Do not update values to reflect later role, title, or authority changes
+• Treat the value as request provenance, not endorsement or approval
 
-ARTIFACT_FORMAT  
-• Use ALL CAPS with underscore separation  
-• Single-word values are acceptable  
-• Multi-word values must use underscores  
-• Describe the dominant form of expression, not the tool or lifecycle  
 
-ARTIFACT_GROUP  
-• Use ALL CAPS with underscore separation for group names  
-• Separate multiple group values using semicolons (`;`)  
-• Treat groups as unordered labels  
-• Avoid hierarchy or implied priority  
+ARTIFACT_FUNCTION
+• Use ALL CAPS with underscore separation
+• Use noun phrases
+• Describe what the artifact is, not what it does
+• Avoid lifecycle, status, or preference language
 
-CREATED_IN_CONTEXT  
-• Use ALL CAPS  
-• Spaces are explicitly allowed  
-• Underscores may be used but are not required  
-• Prefer short descriptive phrases  
-• Describe circumstances or constraints, not outcomes  
-• Avoid numbers, phases, versions, or ordering terms  
 
-COLLABORATION  
-• Use the `<NAME>` prefix exactly as shown  
-• `<NAME>` should match the collaborator identifier as used elsewhere  
-• Context text may be brief or detailed  
-• Do not use this field to imply approval, authority, or joint emission  
+ARTIFACT_FORMAT
+• Use ALL CAPS with underscore separation
+• Single-word values are acceptable
+• Multi-word values must use underscores
+• Describe the dominant form of expression, not the tool or lifecycle
+
+
+ARTIFACT_GROUP
+• Use ALL CAPS with underscore separation for group names
+• Separate multiple group values using semicolons (`;`)
+• Treat groups as unordered labels
+• Avoid hierarchy or implied priority
+
+
+CREATED_IN_CONTEXT
+• Use ALL CAPS
+• Spaces are explicitly allowed
+• Underscores may be used but are not required
+• Prefer short descriptive phrases
+• Describe circumstances or constraints, not outcomes
+• Avoid numbers, phases, versions, or ordering terms
+
+
+COLLABORATION
+• Use the <NAME> prefix exactly as shown
+• <NAME> should match the collaborator identifier as used elsewhere
+• Context text may be brief or detailed
+• Do not use this field to imply approval, authority, or joint emission
+
 
 ────────────────────────────────────────
 CLOSING NOTE
