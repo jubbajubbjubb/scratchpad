@@ -10,11 +10,17 @@ CREATED_IN_CONTEXT: HEADER MODELING — EXPLICIT HEADER BLOCK AND COLLABORATION 
 CONTENT
 ────────────────────────────────────────
 
+────────────────────────────────────────
+CONTENT
+────────────────────────────────────────
+
 <DELIVERABLE_HEADER>
 
 EMITTER:
 REQUESTED_BY:
+ARTIFACT_DOMAIN:
 ARTIFACT_FUNCTION:
+ARTIFACT_ID:
 ARTIFACT_FORMAT:
 ARTIFACT_GROUP:
 CREATED_IN_CONTEXT:
@@ -23,6 +29,7 @@ CREATED_IN_CONTEXT:
 COLLABORATION:
 
 </DELIVERABLE_HEADER>
+
 
 ────────────────────────────────────────
 EXPLANATION
