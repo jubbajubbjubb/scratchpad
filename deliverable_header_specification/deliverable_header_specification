@@ -87,6 +87,26 @@ Declares what the artifact is, at an identity level.
 Distinguishes specification versus instance where relevant.  
 Must not encode usage, lifecycle, authority, or correctness.
 
+ARTIFACT_DOMAIN
+---------------
+
+ARTIFACT_DOMAIN declares the canonical domain in which an artifact
+belongs.
+
+It exists solely to support deterministic artifact routing
+(e.g., repository selection).
+
+ARTIFACT_DOMAIN:
+• does not convey meaning
+• does not imply authority
+• does not affect artifact identity
+• does not determine behavior or interpretation
+
+ARTIFACT_DOMAIN values are opaque labels governed externally.
+
+This field may be referenced by routing rules but is not required
+to appear in a deliverable header at this stage.
+
 ARTIFACT_FORMAT  
 Declares the primary form in which the artifact is expressed.  
 Sets reader and parsing expectations only.
