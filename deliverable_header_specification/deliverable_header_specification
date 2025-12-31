@@ -83,9 +83,37 @@ Identifies the role or actor that requested production of the artifact.
 Encodes request provenance only and does not imply approval or acceptance.
 
 ARTIFACT_FUNCTION  
-Declares what the artifact is, at an identity level.  
-Distinguishes specification versus instance where relevant.  
-Must not encode usage, lifecycle, authority, or correctness.
+Definition:
+Declares the structural role or kind of the artifact.
+
+Purpose:
+Classifies what type of artifact this is for organizational and structural
+purposes only.
+
+Encodes:
+• Artifact role / kind
+
+Does NOT encode:
+• Artifact identity
+• Filename or naming semantics
+• Authority
+• Ownership
+• Governance scope
+• Lifecycle state
+• Ordering, versioning, or priority
+• Semantic meaning beyond classification
+
+Constraints:
+• Exactly one value
+• Identity-level classification only
+• Must not imply uniqueness
+• Multiple artifacts may share the same ARTIFACT_FUNCTION
+• Must not be used for filename derivation or artifact identity
+
+Notes:
+ARTIFACT_FUNCTION intentionally does not identify a specific artifact.
+It exists solely to describe the role or kind of an artifact and must
+remain independent from artifact identity and routing concerns.
 
 ARTIFACT_FORMAT  
 Declares the primary form in which the artifact is expressed.  
