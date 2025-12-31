@@ -48,6 +48,18 @@ The header exists to make provenance, identity, expression, association,
 and situational context explicit, while deliberately refusing to encode
 authority, lifecycle, ordering, evaluation, or temporal semantics.
 
+Human vs Machine Interpretation
+
+Header field values are chosen by human authors and may be meaningful
+and legible to them.
+
+The constraints defined in this specification apply to how tooling,
+automation, and orchestration interpret and act upon these values.
+
+Tooling MUST treat all header values as declarative inputs and MUST NOT
+infer intent, authority, behavior, or lifecycle semantics beyond what is
+explicitly specified by governing artifacts.
+
 
 ────────────────────────────────────────
 APPLICABILITY
