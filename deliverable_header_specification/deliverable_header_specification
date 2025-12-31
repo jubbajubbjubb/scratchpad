@@ -291,6 +291,32 @@ General Principles
 Field-Specific Guidance
 ----------------------------------------
 
+DETERMINISTIC ARTIFACT PLACEMENT
+
+The deliverable header provides sufficient declared information to enable
+fully deterministic artifact placement without inference or external context.
+
+When used in a placement or routing system, the following mapping applies:
+
+• ARTIFACT_DOMAIN   → canonical repository selection
+• ARTIFACT_FUNCTION → path class or structural category
+• ARTIFACT_ID       → artifact filename (identity)
+• ARTIFACT_FORMAT   → filename extension or encoding indicator
+
+This mapping is descriptive, not prescriptive.
+
+The header does not encode:
+• authority over placement
+• lifecycle or activation state
+• ordering or precedence
+• versioning or replacement semantics
+
+Any system that performs artifact placement must rely solely on declared
+header fields and must not infer placement decisions from artifact content,
+commit history, or external metadata.
+
+
+
 EMITTER  
 • Record the role or chat name exactly as it existed at the time of artifact creation  
 • Preserve capitalization, spelling, and wording as originally used  
