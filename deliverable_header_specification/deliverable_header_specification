@@ -126,13 +126,13 @@ It exists solely to support deterministic artifact routing
 ARTIFACT_DOMAIN:
 • does not convey meaning
 • does not imply authority
-• does not affect artifact identity
-• does not determine behavior or interpretation
 
 ARTIFACT_DOMAIN values are opaque labels governed externally.
 
-This field may be referenced by routing rules but is not required
-to appear in a deliverable header at this stage.
+This field may be referenced by routing rules.
+Omission is permitted only for legacy deliverable artifacts created
+before adoption of this specification; newly created artifacts are
+expected to include this field.
 
 
 ARTIFACT_FUNCTION
