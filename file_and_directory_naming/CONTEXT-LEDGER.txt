@@ -161,3 +161,395 @@ a single authoritative artifact so remembering is no longer required.
 
 Next steps: debate, refine, compress into a normative grammar artifact.
 ────────────────────────────────────────
+
+────────────────────────────────────────────────────────
+DISCUSSION SURFACING — NAMING FILES & FOLDERS
+────────────────────────────────────────
+
+This document exists to surface implicit assumptions humans make when
+naming files and folders, so they can be debated, accepted, rejected,
+or constrained explicitly.
+
+This is NOT a specification.
+It is a discussion scaffold.
+
+────────────────────────────────────────
+A. SCOPE & TARGET OF NAMING
+────────────────────────────────────────
+
+Assumption to surface:
+“This grammar applies to all names equally.”
+
+Questions:
+- Does this grammar apply to:
+  - files only?
+  - directories only?
+  - both equally?
+- Are there any names it explicitly does NOT apply to?
+  (e.g., legacy paths, vendor-controlled directories, tool-generated folders)
+- Are header-derived (computed) names treated differently from
+  human-authored names?
+
+Decisions / Captured Thoughts:
+
+• This grammar applies equally to files and directories.
+• Humans are responsible for naming and must not rely on implied
+  intuition, convention, or informal judgment when naming.
+• All names that exist in GitHub are subject to this grammar.
+• Legacy paths have no standing exemption.
+• Any legacy artifact must be fixed to conform if it is to exist in GitHub.
+• Migration into GitHub implies normalization to the grammar.
+
+Implications (surfaced, not debated):
+
+• No grandfathering based on age or origin.
+• GitHub acts as a clean boundary for admissibility.
+• Tool-generated names must also conform; “the tool did it” is not an excuse.
+• Directories are first-class, grammar-governed symbols.
+• Directory names may not encode lifecycle, authority, or evaluation.
+• Placement and naming remain separate concerns; neither excuses the other.
+
+────────────────────────────────────────
+END OF SECTION A
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+B. STABILITY EXPECTATIONS
+────────────────────────────────────────
+
+Assumption to surface:
+“Once named, it probably shouldn’t change.”
+
+Decisions / Captured Thoughts:
+
+• Names are presumed immutable.
+• Renaming is exceptional and only expected if new design paradigms arise.
+• Any rename requires a commit that updates the deliverable header.
+• All decisions about identity and placement flow from the header.
+• A rename is a first-class commit.
+• A path change is an explicit file move.
+
+Implications (surfaced, not debated):
+
+• Artifact identity is anchored in the header, not inferred from path.
+• There is no such thing as a harmless or cosmetic rename.
+• Renames and moves are governance-relevant events with provenance.
+• Tooling may treat paths as stable references.
+• Migration does not permit heuristic or automatic renaming.
+
+────────────────────────────────────────
+END OF SECTION B
+────────────────────────────────────────
+
+────────────────────────────────────────
+C. ALLOWED VS FORBIDDEN SEMANTICS
+────────────────────────────────────────
+
+Assumption to surface:
+“People know what kinds of words are dangerous.”
+
+Decisions / Captured Thoughts:
+
+• This grammar defines only what is NOT allowed.
+• The grammar is purely prohibitive; it does not prescribe meaning.
+• The following semantic classes are explicitly disallowed in all names:
+
+  – Lifecycle semantics
+    (e.g., FINAL, DRAFT, DEPRECATED)
+
+  – Authority semantics
+    (e.g., CANONICAL, OFFICIAL)
+
+  – Ordering / versioning semantics
+    (e.g., V1, V2, NEXT)
+
+  – Evaluative semantics
+    (e.g., GOOD, BAD, CORRECT)
+
+• No other semantic restrictions apply.
+• Any semantics not belonging to the explicitly forbidden classes
+  are permitted.
+
+Implications (surfaced, not debated):
+
+• Domain-specific terminology is allowed.
+• Technical adjectives are allowed.
+• Process-related words are allowed.
+• Ambiguity is tolerated as long as forbidden semantics are absent.
+• Grammar correctness is independent of aesthetic quality.
+
+────────────────────────────────────────
+END OF SECTION C
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+D. CHARACTER SET & SHAPE
+────────────────────────────────────────
+
+Assumption to surface:
+“People know what a ‘reasonable’ name looks like.”
+
+Decisions / Captured Thoughts:
+
+• Names MUST be between 3 and 64 characters in length,
+  excluding underscore characters.
+• Allowed characters are ASCII uppercase letters A–Z
+  and underscore (`_`) only.
+• All names MUST be written in ALL CAPS.
+
+These constraints are normative.
+
+Derived artifacts preserve ARTIFACT_ID verbatim and append a
+lowercase derivation marker using a double underscore delimiter.
+
+Derived artifacts do not alter the canonical identity of the base artifact.
+
+Pattern:
+
+<ARTIFACT_ID>__<derivation>.txt
+
+Normative example:
+
+CORE_INVARIANT_SET__ir.txt
+
+Rules:
+
+• The base ARTIFACT_ID is preserved exactly.
+• Derivation markers are lowercase.
+• Derivation markers encode process only.
+• No versioning, ordering, lifecycle, authority,
+  or evaluative semantics are permitted.
+
+────────────────────────────────────────
+END OF SECTION D
+────────────────────────────────────────
+
+────────────────────────────────────────
+E. UNIQUENESS & COLLISIONS
+────────────────────────────────────────
+
+Assumption to surface:
+“Names won’t collide if we’re careful.”
+
+Decisions / Captured Thoughts:
+
+• File names MUST NOT collide.
+• A name collision is treated as evidence that two artifacts
+  represent the same function.
+• Collisions are not resolved through suffixes or renaming tricks.
+• When a collision occurs, the newer artifact must be reevaluated.
+• The correct resolution is to consider a commit to the existing artifact,
+  not the creation of a parallel artifact.
+
+Implications (surfaced, not debated):
+
+• Uniqueness is a hard requirement, not a convention.
+• Duplicate file names are structurally forbidden.
+• Suffix-based disambiguation is disallowed.
+• Artifact history has precedence by default.
+• Resolution of collisions is explicit and governance-relevant.
+
+────────────────────────────────────────
+END OF SECTION E
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+F. HUMAN INTENT VS MACHINE INTERPRETATION
+────────────────────────────────────────
+
+Assumption to surface:
+“Humans can put meaning in names; machines will ignore it.”
+
+Decisions / Captured Thoughts:
+
+• Header field values, including names, are chosen by human authors and
+  may be meaningful and legible to them.
+• Human intent and descriptiveness are permitted but not required.
+• Ambiguity is acceptable if the name is well-formed and does not violate
+  explicitly forbidden semantic classes.
+
+• Tooling, automation, and orchestration MUST treat all names as
+  declarative inputs.
+• Tooling MUST NOT infer intent, authority, behavior, or lifecycle
+  semantics from names beyond what is explicitly specified by governing
+  artifacts.
+
+• Grammar governs form, not meaning.
+• Optimization for clarity, brevity, or neutrality is a human choice and
+  carries no machine-interpreted significance.
+
+────────────────────────────────────────
+END OF SECTION F
+────────────────────────────────────────
+
+────────────────────────────────────────
+G. GRAMMAR VS STYLE GUIDANCE
+────────────────────────────────────────
+
+Assumption to surface:
+“People know which rules are strict and which are suggestions.”
+
+Decisions / Captured Thoughts:
+
+• Naming MUST be a purely mechanical task.
+• Names MUST be derivable by rule application alone, without judgment,
+  taste, preference, or interpretation.
+• This specification exists to replace informal convention and
+  individual preference entirely.
+
+• This grammar contains ONLY strict, normative rules.
+• There is NO advisory, optional, stylistic, or preference-based guidance.
+• Any rule included in this specification is mandatory.
+• Any behavior not explicitly permitted by this grammar is forbidden.
+
+• This grammar is explicitly intended to be consumed by automated
+  systems (including LLMs) for deterministic name generation.
+• Humans MAY execute naming manually, but MUST follow the same rules
+  without deviation.
+• Tooling and LLMs MUST apply the rules exactly as written and MUST NOT
+  infer intent, authority, hierarchy, lifecycle, or meaning.
+
+Ambiguity Handling (Normative):
+
+• If ambiguity arises such that it is unclear whether a proposed name
+  is valid under this grammar, execution MUST STOP.
+• Ambiguity MUST result in a loud failure.
+• Ambiguity MUST NOT be resolved by intuition, convention, preference,
+  discretion, or “best judgment.”
+• Ambiguity exists only when validity cannot be determined mechanically;
+  the existence of multiple valid names is NOT ambiguity.
+• Upon ambiguity, the executor MUST inform the EMITTER of this
+  specification.
+• Ambiguity indicates either:
+  – the grammar is underspecified, OR
+  – a requirement has emerged that cannot be expressed using the
+    current grammar.
+• Naming MUST NOT proceed until the grammar is revised or extended.
+
+Implications (surfaced, not debated):
+
+• There is NO SHOULD / SHOULD NOT layer.
+• There is NO distinction between grammar and style.
+• There is NO acceptable “style-only” violation.
+• Examples are illustrative only and MUST NOT be treated as permissive.
+• Any name that does not conform exactly to this grammar is ill-formed
+  and invalid by definition.
+
+────────────────────────────────────────
+END OF SECTION G
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+H. FAILURE MODE
+────────────────────────────────────────
+
+Assumption to surface:
+“People will fix bad names when they see them.”
+
+Decisions / Captured Thoughts:
+
+• Any file that does not conform to this specification is a bad file.
+• Bad files MUST be rejected immediately.
+• Rejection MUST be loud.
+• Silent failure, warning-only behavior, or permissive fallback
+  is forbidden.
+• Enforcement is immediate and mandatory.
+• There is no human override for nonconforming names.
+
+• Header generation is a governed operation.
+• Header construction may be a collaborative process between humans
+  and automated systems (including LLMs), but the resulting header
+  MUST fully conform to this specification.
+• An LLM participating in header generation MUST treat this
+  specification as binding.
+• If an LLM cannot generate a conforming header, it MUST fail loudly
+  and MUST NOT emit a partial, best-guess, or nonconforming header.
+
+Implications (surfaced, not debated):
+
+• This grammar is enforced at the moment of execution and generation.
+• Nonconforming names and headers cannot exist in the system.
+• Correctness is binary: well-formed or ill-formed.
+• Failure halts execution and header emission until corrected.
+
+────────────────────────────────────────
+END OF SECTION H
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+I. MIGRATION & LEGACY
+────────────────────────────────────────
+
+Assumption to surface:
+“We’ll deal with legacy later.”
+
+Decisions / Captured Thoughts:
+
+• There is no concept of legacy.
+• All artifacts are required to conform to the current specification.
+• Any artifact that does not conform is not admissible.
+
+• Any pre-existing artifact MUST be updated to include the new
+  deliverable header and required fields before it may exist in
+  the system.
+
+• This specification governs the final step in a mechanical task.
+• Once an artifact reaches this stage, no legacy exemption is possible.
+
+Implications (surfaced, not debated):
+
+• There is no grandfathering.
+• There is no compatibility mode.
+• Migration consists solely of normalization to the current specification.
+• Legacy detection requires no special mechanism beyond validation.
+
+────────────────────────────────────────
+END OF SECTION I
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+J. NAMING VS PLACEMENT BOUNDARY
+────────────────────────────────────────
+
+Assumption to surface:
+“Naming and placement are separate, but people won’t confuse them.”
+
+Decisions / Captured Thoughts:
+
+• There is no acceptable ambiguity between naming and placement.
+• Directory names and file names are governed by the same grammar.
+• Grammar governs admissible form.
+• Placement governs location only.
+
+• Grammar rules MUST NOT reference placement outcomes.
+• Placement rules MUST NOT override or reinterpret grammar.
+• Neither grammar nor placement may silently supersede the other.
+
+• If grammar and placement conflict, or if any uncertainty exists,
+  execution MUST STOP.
+• Any such condition indicates underspecification.
+• Failure MUST be loud.
+
+Implications (surfaced, not debated):
+
+• There is no precedence rule between grammar and placement.
+• Conflicts cannot be resolved by convention or intuition.
+• Resolution requires explicit specification updates.
+• Silence never legitimizes invalid state.
+
+────────────────────────────────────────
+END OF SECTION J
+────────────────────────────────────────
+
+
+────────────────────────────────────────
+END OF DISCUSSION SCAFFOLD
+────────────────────────────────────────
+
+nonce: 94aa719e-94bf-4a1f-bac0-067934c1cf49
