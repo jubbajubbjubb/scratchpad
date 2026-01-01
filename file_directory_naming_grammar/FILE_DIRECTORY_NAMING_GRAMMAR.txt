@@ -168,6 +168,36 @@ Normative statements are binding.
 All other text is explanatory and non-normative.
 
 ────────────────────────────────────────
+UNIQUENESS & COLLISIONS
+────────────────────────────────────────
+
+Names governed by this specification MUST be unique within their
+governed repository context.
+
+A name collision MUST be treated as a structural failure.
+
+Normative rules:
+
+• File and directory names MUST NOT collide.
+• Suffix-based disambiguation (including numeric, semantic, or
+  cosmetic suffixes) is forbidden.
+• A collision indicates that two artifacts claim the same identity
+  or function.
+
+Collision Resolution Semantics:
+
+• When a collision occurs, creation of a new artifact MUST STOP.
+• The existing artifact takes precedence by default.
+• Resolution MUST occur by:
+  – merging changes into the existing artifact, OR
+  – amending the existing artifact via an explicit commit.
+
+Creation of parallel artifacts to resolve collisions is forbidden.
+
+Collision resolution is a governance-relevant decision and MUST be
+explicitly recorded through commit history.
+
+────────────────────────────────────────
 MIGRATION & LEGACY
 ────────────────────────────────────────
 
