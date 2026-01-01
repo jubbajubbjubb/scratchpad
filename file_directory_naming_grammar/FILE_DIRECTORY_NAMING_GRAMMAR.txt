@@ -3,10 +3,47 @@
 EMITTER: GOV - Archivist
 REQUESTED_BY: USER
 ARTIFACT_DOMAIN: SPECIFICATION
-ARTIFACT_FUNCTION:
-ARTIFACT_ID:
-ARTIFACT_FORMAT:
-ARTIFACT_GROUP:
-CREATED_IN_CONTEXT:
+ARTIFACT_FUNCTION: UNRESOLVED
+ARTIFACT_ID: FILE_DIRECTORY_NAMING_GRAMMAR
+ARTIFACT_FORMAT: PLAIN_TEXT
+ARTIFACT_GROUP: UNRESOLVED
+CREATED_IN_CONTEXT: GOVERNANCE FORM GRAMMAR FORMALIZATION
 
 </DELIVERABLE_HEADER>
+
+────────────────────────────────────────
+FILE_DIRECTORY_NAMING_GRAMMAR
+────────────────────────────────────────
+
+────────────────────────────────────────
+PURPOSE
+────────────────────────────────────────
+
+This specification defines a formal grammar governing the admissible
+form of names used for files and directories.
+
+The purpose of this grammar is to prevent semantic smuggling via form
+by constraining naming to mechanically checkable structure that does
+not assign meaning, authority, lifecycle, or intent.
+
+────────────────────────────────────────
+SCOPE
+────────────────────────────────────────
+
+This specification applies to the form of names assigned to files and
+directories within governed repositories.
+
+It governs admissibility of form only.
+It does not define placement, identity, authority, behavior, acceptance,
+or correctness of artifact content.
+
+────────────────────────────────────────
+NORMATIVE LANGUAGE
+────────────────────────────────────────
+
+The key words “MUST”, “MUST NOT”, and “MAY” in this document are used to
+indicate normative requirements.
+
+Normative statements are binding.
+All other text is explanatory and non-normative.
+
