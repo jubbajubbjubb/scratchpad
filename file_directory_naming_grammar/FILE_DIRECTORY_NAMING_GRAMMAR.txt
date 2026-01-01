@@ -60,6 +60,33 @@ There is no concept of a cosmetic or harmless rename.
 Renames and moves are governance-relevant events with provenance.
 
 ────────────────────────────────────────
+SEMANTIC CONSTRAINTS
+────────────────────────────────────────
+
+Names governed by this specification MUST NOT encode semantic meaning
+belonging to any of the following disallowed classes:
+
+• Lifecycle semantics
+  (including but not limited to: FINAL, DRAFT, DEPRECATED)
+
+• Authority semantics
+  (including but not limited to: CANONICAL, OFFICIAL)
+
+• Ordering or versioning semantics
+  (including but not limited to: V1, V2, NEXT)
+
+• Evaluative semantics
+  (including but not limited to: GOOD, BAD, CORRECT)
+
+No other semantic restrictions apply.
+
+Any semantic content not belonging to the explicitly disallowed classes
+above is permitted.
+
+This grammar is purely prohibitive.
+It does not prescribe meaning, intent, hierarchy, importance, or usage.
+
+────────────────────────────────────────
 NORMATIVE LANGUAGE
 ────────────────────────────────────────
 
