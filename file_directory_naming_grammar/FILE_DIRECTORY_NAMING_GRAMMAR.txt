@@ -115,7 +115,7 @@ append a derivation marker using a double underscore delimiter.
 
 The canonical pattern for derived artifacts is:
 
-<ARTIFACT_ID>__<derivation>.txt
+<ARTIFACT_ID>__<derivation>.<extension>
 
 Rules for derivation markers:
 
@@ -127,6 +127,35 @@ Rules for derivation markers:
 
 Derived artifacts MUST NOT alter the canonical identity of the base
 artifact.
+
+────────────────────────────────────────
+FILE EXTENSIONS & ARTIFACT_FORMAT
+────────────────────────────────────────
+
+File extensions are not part of the governed name under this specification.
+
+The grammar defined in this document governs only the base name
+(i.e., the identifier portion preceding any file extension).
+
+File extensions exist solely as a serialization indicator and
+correspond to the value declared in the ARTIFACT_FORMAT field of the
+deliverable header.
+
+Normative rules:
+
+• File extensions MUST NOT be treated as part of the artifact’s identity.
+• File extensions MUST NOT be used to infer authority, lifecycle,
+  ordering, evaluation, or semantic meaning.
+• File extensions MUST NOT be interpreted as carrying meaning beyond
+  the declared ARTIFACT_FORMAT.
+• This specification DOES NOT prescribe, restrict, or prohibit any
+  specific file extension.
+• Validation of correspondence between ARTIFACT_FORMAT and file
+  extension, if any, is out of scope for this specification.
+
+Tooling, automation, and LLMs MUST treat file extensions as
+non-authoritative representations of format and MUST rely on
+ARTIFACT_FORMAT as the sole declarative source of format information.
 
 ────────────────────────────────────────
 NORMATIVE LANGUAGE
