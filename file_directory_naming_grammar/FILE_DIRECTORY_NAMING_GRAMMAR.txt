@@ -198,6 +198,37 @@ Collision resolution is a governance-relevant decision and MUST be
 explicitly recorded through commit history.
 
 ────────────────────────────────────────
+HUMAN VS MACHINE INTERPRETATION
+────────────────────────────────────────
+
+Names governed by this specification MAY carry meaning or descriptive
+value for human authors.
+
+Human interpretation of names is permitted but carries no authority.
+
+Normative rules:
+
+• Tooling, automation, and LLMs MUST treat all names as declarative
+  inputs with no intrinsic meaning.
+• Tooling MUST NOT infer intent, authority, lifecycle, behavior,
+  correctness, or acceptance from names.
+• Tooling MUST rely exclusively on explicitly declared artifacts
+  (including headers, specifications, and governance rules).
+• Human intent encoded in names has no machine-interpreted authority.
+
+Ambiguity Tolerance:
+
+• Human-facing ambiguity is permitted if and only if the name is
+  mechanically well-formed and does not violate this grammar.
+• Machine-facing ambiguity is forbidden.
+• If a machine cannot determine validity or behavior using explicit
+  governing artifacts alone, execution MUST STOP.
+
+Grammar governs form only.
+Meaning exists solely for human comprehension and has no operational
+effect unless explicitly declared elsewhere.
+
+────────────────────────────────────────
 MIGRATION & LEGACY
 ────────────────────────────────────────
 
