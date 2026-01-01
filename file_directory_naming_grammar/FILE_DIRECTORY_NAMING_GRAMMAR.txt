@@ -27,15 +27,37 @@ by constraining naming to mechanically checkable structure that does
 not assign meaning, authority, lifecycle, or intent.
 
 ────────────────────────────────────────
-SCOPE
+SCOPE & APPLICABILITY
 ────────────────────────────────────────
 
-This specification applies to the form of names assigned to files and
-directories within governed repositories.
+This specification governs the admissible form of names assigned to
+files and directories.
 
-It governs admissibility of form only.
-It does not define placement, identity, authority, behavior, acceptance,
-or correctness of artifact content.
+This grammar applies equally and without distinction to:
+• file names
+• directory names
+
+All names that exist within governed repositories MUST conform to this
+specification.
+
+This specification governs form only.
+It MUST NOT be used to infer or define placement, identity, authority,
+behavior, acceptance, or correctness of artifact content.
+
+────────────────────────────────────────
+STABILITY & RENAME SEMANTICS
+────────────────────────────────────────
+
+Names governed by this specification are presumed immutable.
+
+A rename is an exceptional event and MUST be treated as a first-class
+change requiring an explicit commit.
+
+Any rename MUST update the associated deliverable header.
+Any path change constitutes an explicit file or directory move.
+
+There is no concept of a cosmetic or harmless rename.
+Renames and moves are governance-relevant events with provenance.
 
 ────────────────────────────────────────
 NORMATIVE LANGUAGE
@@ -46,4 +68,18 @@ indicate normative requirements.
 
 Normative statements are binding.
 All other text is explanatory and non-normative.
+
+────────────────────────────────────────
+MIGRATION & LEGACY
+────────────────────────────────────────
+
+There is no legacy exemption under this specification.
+
+All pre-existing files and directories MUST be updated to conform to
+this grammar in order to exist within governed repositories.
+
+Migration consists solely of normalization to the current specification.
+There is no compatibility mode and no grandfathering.
+
+Any file or directory that does not conform is not admissible.
 
