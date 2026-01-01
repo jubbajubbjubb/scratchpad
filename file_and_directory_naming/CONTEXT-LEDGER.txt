@@ -1,0 +1,163 @@
+────────────────────────────────────────────────────────
+THOUGHT CAPTURE — FORM / GRAMMAR GAP
+────────────────────────────────────────
+
+Purpose:
+Capture the emerging reasoning around naming, form, and grammar so it
+can be externalized, debated, and iterated without relying on memory.
+
+This is NOT a specification.
+This is a thought capture for later refinement.
+
+────────────────────────────────────────
+1. PROBLEM STATEMENT
+────────────────────────────────────────
+
+Humans invent names, identifiers, and labels.
+Machines must consume artifacts without inference.
+
+Historically, naming has silently carried extra responsibilities:
+• signaling intent
+• signaling importance
+• encoding lifecycle
+• hinting at behavior or authority
+
+This is dangerous in a machine-first system, because machines must treat
+names as opaque.
+
+The core problem is not naming itself.
+The core problem is preventing semantic smuggling via form.
+
+────────────────────────────────────────
+2. ESTABLISHED FACTS / INVARIANTS
+────────────────────────────────────────
+
+• Headers define what exists.
+• Placement grammar defines where it goes.
+• Neither should rely on human memory.
+• Humans should not have to remember why a name is “bad.”
+• If a rule exists only in conversation, it does not exist.
+
+These are settled constraints.
+
+────────────────────────────────────────
+3. OBSERVED FRICTION / SIGNALS
+────────────────────────────────────────
+
+Repeated signals indicating a missing formal boundary:
+
+• “This feels wrong but I can’t justify it cleanly.”
+• “I hate that I have to remember this.”
+• “This keeps turning into a semantic debate.”
+• “We already solved this, but I don’t know where.”
+
+These signals indicate a missing artifact governing FORM.
+
+Not placement.
+Not identity.
+FORM.
+
+────────────────────────────────────────
+4. WHY THE TERM ‘GRAMMAR’ KEEPS RECURRING
+────────────────────────────────────────
+
+The concept under discussion has the following properties:
+
+• Defines admissible vs inadmissible forms
+• Does not assign meaning
+• Does not grant authority
+• Is non-negotiable once written
+• Is mechanically checkable
+• Violations are “ill-formed,” not “wrong”
+
+Operationally, this matches the definition of a grammar.
+
+Discomfort with the term appears to be about weight or connotation,
+not correctness.
+
+────────────────────────────────────────
+5. SINGLE GRAMMAR VS MULTIPLE GRAMMARS
+────────────────────────────────────────
+
+Multiple grammars would imply:
+• humans must remember which grammar applies
+• boundary disputes between grammars
+• drift back to interpretation
+
+A single grammar implies:
+• if a value is human-chosen, the grammar applies
+• one place where form is decided
+• no memory burden
+
+Symmetry with existing structure:
+• One header structure
+• One placement grammar
+• One form grammar
+
+────────────────────────────────────────
+6. WHAT THE GRAMMAR WOULD GOVERN
+────────────────────────────────────────
+
+Applies to the FORM of human-chosen strings, including:
+
+• ARTIFACT_ID
+• ARTIFACT_FUNCTION
+• ARTIFACT_GROUP values
+• any future human-invented identifiers
+
+Defines:
+• forbidden tokens (e.g., FINAL, V2, CANONICAL)
+• forbidden semantics (authority, lifecycle, ordering)
+• allowed character classes
+• stability expectations
+
+Does NOT define:
+• placement
+• authority
+• correctness of content
+• behavior
+• acceptance
+
+────────────────────────────────────────
+7. WHY THIS FEELS LIKE EXTRA WORK
+────────────────────────────────────────
+
+The grammar already exists implicitly in human memory.
+
+That is the worst possible storage location.
+
+Externalizing it:
+• reduces debate
+• reduces future friction
+• reduces emotional load
+• allows safe forgetting
+
+This mirrors prior successful externalizations:
+• invariants
+• headers
+• routing
+• shibboleths
+
+────────────────────────────────────────
+8. OPEN QUESTIONS FOR ITERATION
+────────────────────────────────────────
+
+(To be debated later; not resolved here.)
+
+1. Is “GRAMMAR” the right artifact function name, or should it be scoped?
+2. Should the grammar be purely prohibitive, or also define allowed forms?
+3. How strict should it be on human readability vs machine safety?
+4. Does it apply retroactively or only prospectively?
+5. Where is the boundary between grammar and non-normative style guidance?
+
+────────────────────────────────────────
+9. CLOSING NOTE
+────────────────────────────────────────
+
+This capture exists because reliance on memory was detected.
+
+The goal is to convert “I hate that I have to remember this” into
+a single authoritative artifact so remembering is no longer required.
+
+Next steps: debate, refine, compress into a normative grammar artifact.
+────────────────────────────────────────
