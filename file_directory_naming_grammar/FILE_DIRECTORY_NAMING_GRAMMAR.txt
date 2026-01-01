@@ -340,6 +340,64 @@ Resolution of grammar–placement conflicts requires explicit
 specification amendment by commit.
 
 ────────────────────────────────────────
+EXAMPLES & TEST VECTORS (NON-NORMATIVE)
+────────────────────────────────────────
+
+This section provides illustrative examples of valid and invalid names
+under this specification.
+
+This section is NON-NORMATIVE.
+
+Examples do not introduce exceptions, interpretations, or additional
+rules. The grammar defined in this specification remains the sole
+authority.
+
+────────────────────────────────────────
+VALID NAME EXAMPLES
+────────────────────────────────────────
+
+The following names are mechanically well-formed under this grammar:
+
+• FILE_DIRECTORY_NAMING_GRAMMAR
+• CORE_INVARIANT_SET
+• ARTIFACT_METADATA
+• GOVERNANCE_RULES
+
+────────────────────────────────────────
+INVALID NAME EXAMPLES
+────────────────────────────────────────
+
+The following names are ill-formed and MUST be rejected:
+
+• file_directory_naming_grammar  
+  – invalid: lowercase letters forbidden (Character Set and Casing)
+
+• FINAL_SPEC  
+  – invalid: lifecycle semantics forbidden (Semantic Constraints)
+
+• CORE_V2  
+  – invalid: ordering or versioning semantics forbidden
+    (Semantic Constraints)
+
+• OFFICIAL_RULES  
+  – invalid: authority semantics forbidden (Semantic Constraints)
+
+• GOOD_NAME  
+  – invalid: evaluative semantics forbidden (Semantic Constraints)
+
+• CORE-INVARIANT-SET  
+  – invalid: non-permitted characters forbidden
+    (Character Set and Casing)
+
+• CO  
+  – invalid: minimum length requirement not met
+    (Length Constraints)
+
+• CORE_INVARIANT_SET__IR  
+  – invalid: derivation markers MUST be lowercase
+    (Derived Artifact Naming)
+
+────────────────────────────────────────
 MIGRATION & LEGACY
 ────────────────────────────────────────
 
