@@ -274,6 +274,41 @@ Examples, if present elsewhere, are illustrative only and MUST NOT
 be treated as permissive or authoritative.
 
 ────────────────────────────────────────
+FAILURE MODE & ENFORCEMENT
+────────────────────────────────────────
+
+This specification defines strict, binary enforcement semantics.
+
+Any violation of this grammar constitutes an invalid artifact.
+
+Normative rules:
+
+• Any file or directory name that does not conform to this specification
+  MUST be rejected immediately.
+• Rejection MUST be loud and explicit.
+• Silent failure, warning-only behavior, or permissive fallback
+  is forbidden.
+• There is no concept of partial validity or best-effort acceptance.
+• Enforcement is immediate at the point of detection.
+
+LLM and Automation Constraints:
+
+• LLMs and automated systems participating in name or header generation
+  MUST treat this specification as binding.
+• If an LLM cannot generate a name or header that fully conforms to this
+  specification, it MUST fail loudly.
+• LLMs MUST NOT emit partial, speculative, inferred, or best-guess output
+  for governed names.
+• Emission of a nonconforming name or header is forbidden.
+
+Correctness under this specification is binary:
+
+• A name is either well-formed or ill-formed.
+• There is no degraded, provisional, or advisory state.
+
+Failure MUST halt execution until corrected.
+
+────────────────────────────────────────
 MIGRATION & LEGACY
 ────────────────────────────────────────
 
