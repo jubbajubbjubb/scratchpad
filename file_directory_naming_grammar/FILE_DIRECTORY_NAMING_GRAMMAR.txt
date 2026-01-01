@@ -229,6 +229,51 @@ Meaning exists solely for human comprehension and has no operational
 effect unless explicitly declared elsewhere.
 
 ────────────────────────────────────────
+GRAMMAR VS STYLE & AMBIGUITY HANDLING
+────────────────────────────────────────
+
+This specification defines a grammar, not a style guide.
+
+All rules defined herein are strictly normative.
+
+There is no advisory, optional, stylistic, or preference-based layer.
+
+Normative rules:
+
+• Any rule stated in this specification is mandatory.
+• There is no SHOULD or SHOULD NOT interpretation layer.
+• Any behavior not explicitly permitted by this grammar is forbidden.
+
+Grammar Execution Semantics:
+
+• Naming MUST be a purely mechanical task.
+• Validity MUST be determinable by rule application alone.
+• Judgment, taste, preference, intuition, or convention MUST NOT be used.
+• Multiple valid names do not constitute ambiguity.
+
+Ambiguity Handling (Normative):
+
+• Ambiguity exists only when it is impossible to determine validity
+  mechanically using this specification.
+• If ambiguity exists, execution MUST STOP immediately.
+• Ambiguity MUST result in a loud failure.
+• Ambiguity MUST NOT be resolved by interpretation or best judgment.
+• Upon ambiguity, the executor MUST notify the EMITTER of this
+  specification.
+
+Ambiguity indicates one of the following conditions:
+
+• The grammar is underspecified, OR
+• A new requirement exists that cannot be expressed using the
+  current grammar.
+
+Naming MUST NOT proceed until the specification is amended by
+explicit commit.
+
+Examples, if present elsewhere, are illustrative only and MUST NOT
+be treated as permissive or authoritative.
+
+────────────────────────────────────────
 MIGRATION & LEGACY
 ────────────────────────────────────────
 
