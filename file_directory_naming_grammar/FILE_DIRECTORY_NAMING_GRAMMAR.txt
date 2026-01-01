@@ -87,6 +87,48 @@ This grammar is purely prohibitive.
 It does not prescribe meaning, intent, hierarchy, importance, or usage.
 
 ────────────────────────────────────────
+CHARACTER SET & SHAPE GRAMMAR
+────────────────────────────────────────
+
+Names governed by this specification MUST conform to the following
+character set, casing, and length constraints.
+
+Character Set and Casing:
+
+• Names MUST consist solely of ASCII uppercase letters A–Z and
+  underscore characters (`_`).
+• All alphabetic characters MUST be uppercase.
+• No other characters are permitted.
+
+Length Constraints:
+
+• Names MUST be at least 3 characters in length.
+• Names MUST NOT exceed 64 characters in length.
+• Underscore characters are excluded from length calculations.
+
+These constraints are mandatory and mechanically checkable.
+
+Derived Artifact Naming:
+
+Derived artifacts MUST preserve the base ARTIFACT_ID verbatim and
+append a derivation marker using a double underscore delimiter.
+
+The canonical pattern for derived artifacts is:
+
+<ARTIFACT_ID>__<derivation>.txt
+
+Rules for derivation markers:
+
+• The base ARTIFACT_ID MUST be preserved exactly.
+• Derivation markers MUST be lowercase.
+• Derivation markers MUST encode process only.
+• Derivation markers MUST NOT encode versioning, ordering, lifecycle,
+  authority, or evaluative semantics.
+
+Derived artifacts MUST NOT alter the canonical identity of the base
+artifact.
+
+────────────────────────────────────────
 NORMATIVE LANGUAGE
 ────────────────────────────────────────
 
