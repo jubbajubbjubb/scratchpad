@@ -309,6 +309,37 @@ Correctness under this specification is binary:
 Failure MUST halt execution until corrected.
 
 ────────────────────────────────────────
+NAMING VS PLACEMENT BOUNDARY
+────────────────────────────────────────
+
+This specification governs naming grammar only.
+
+Placement of files and directories is governed by separate,
+explicit placement specifications.
+
+Normative rules:
+
+• Grammar and placement are distinct and non-overlapping concerns.
+• Grammar governs admissible form of names only.
+• Placement governs location only.
+• Grammar MUST NOT reference placement outcomes.
+• Placement rules MUST NOT reinterpret or override grammar.
+• There is no precedence between grammar and placement.
+
+Conflict Handling:
+
+• If grammar and placement rules conflict, execution MUST STOP.
+• Any uncertainty about whether a rule belongs to grammar or placement
+  constitutes a specification failure.
+• Conflicts MUST NOT be resolved by convention, intuition, or
+  implementation discretion.
+
+Cross-layer inference is forbidden.
+
+Resolution of grammar–placement conflicts requires explicit
+specification amendment by commit.
+
+────────────────────────────────────────
 MIGRATION & LEGACY
 ────────────────────────────────────────
 
