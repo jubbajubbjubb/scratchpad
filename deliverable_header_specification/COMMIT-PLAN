@@ -87,17 +87,23 @@ No specification content is introduced in this commit.
 
 ## COMMIT 2 — ONTOLOGY CORRECTION (DIRECTORY-SCOPED MODEL)
 
-Introduce explicit language stating that deliverable artifacts are
-directory-scoped units rather than single files.
+Introduce explicit language defining deliverable artifacts as
+directory-scoped identity units rather than single files.
 
 This commit:
-• Corrects the implicit file-scoped ontology
-• Clarifies the role of `ARTIFACT_ID` as identifying a directory
-• Establishes header association via directory co-location
+
+• Corrects the implicit file-scoped artifact ontology
+• Declares that a deliverable artifact is a directory-scoped unit
+• Clarifies that `ARTIFACT_ID` identifies the artifact itself
+• Establishes that `ARTIFACT_ID` determines both:
+  – the artifact directory name
+  – the artifact body filename within that directory
+• Makes no changes to header structure, discovery, or filenames
 • Makes no changes to header field definitions
 
-This commit introduces ontology clarification only.
-
+This commit introduces ontology clarification only and intentionally
+does not define header placement, structural filenames, or discovery
+rules.
 
 ## COMMIT 3 — HEADER STRUCTURE & DISCOVERY RULES
 
