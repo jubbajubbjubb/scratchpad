@@ -29,26 +29,27 @@ COLLABORATION:
 EXPLANATION
 ────────────────────────────────────────
 
-Deliverable Header Specification — Canonical Definition
+Artifact Identity Record Specification — Canonical Definition
 
 Purpose
 
-This artifact defines the required header structure and fields for
-deliverable artifacts.
+This artifact defines the required identity record structure and fields
+for deliverable artifacts.
 
-The header exists to make provenance, identity, expression, association,
-and situational context explicit, while deliberately refusing to encode
-authority, lifecycle, ordering, evaluation, or temporal semantics.
+The artifact identity record exists to make provenance, identity,
+expression, association, and situational context explicit, while
+deliberately refusing to encode authority, lifecycle, ordering,
+evaluation, or temporal semantics.
 
 Human vs Machine Interpretation
 
-Header field values are chosen by human authors and may be meaningful
+Identity field values are chosen by human authors and may be meaningful
 and legible to them.
 
 The constraints defined in this specification apply to how tooling,
 automation, and orchestration interpret and act upon these values.
 
-Tooling MUST treat all header values as declarative inputs and MUST NOT
+Tooling MUST treat all identity values as declarative inputs and MUST NOT
 infer intent, authority, behavior, or lifecycle semantics beyond what is
 explicitly specified by governing artifacts.
 
@@ -62,11 +63,11 @@ The artifact body file is the artifact itself.
 
 The artifact directory is a structural container that exists to support:
 • deterministic placement
-• deliverable header association
+• artifact identity record association
 • structural discovery
 
 This specification governs the structural container and its associated
-deliverable header.
+artifact identity record.
 
 It does not redefine artifact identity, which remains vested in the
 artifact body file.
@@ -105,7 +106,7 @@ Reuse outside deliverable artifacts requires explicit declaration elsewhere.
 
 
 ────────────────────────────────────────
-HEADER STRUCTURE (NORMATIVE)
+IDENTITY STRUCTURE (NORMATIVE)
 ────────────────────────────────────────
 
 The artifact identity record is a standalone structural file.
@@ -127,10 +128,10 @@ No artifact identity content may appear outside IDENTITY.txt.
 Embedding identity records within artifact body files is prohibited.
 
 ────────────────────────────────────────
-HEADER DISCOVERY & STRUCTURAL FAILURE
+IDENTITY DISCOVERY & STRUCTURAL FAILURE
 ────────────────────────────────────────
 
-Header discovery is purely structural.
+Identity discovery is purely structural.
 
 Tooling and orchestration MUST locate the artifact identity record by
 resolving IDENTITY.txt within the artifact directory.
@@ -143,13 +144,13 @@ Tooling MUST NOT:
 A deliverable artifact is non-conforming if:
 • IDENTITY.txt is missing
 • more than one IDENTITY.txt exists
-• IDENTITY.txt does not contain exactly one <DELIVERABLE_HEADER> block
-• the identity block is malformed or ambiguous
+• IDENTITY.txt does not contain exactly one identity record block
+• the identity record block is malformed or ambiguous
 
 No fallback, inference, or recovery behavior is permitted.
 
 ────────────────────────────────────────
-REQUIRED HEADER FIELDS
+REQUIRED IDENTITY FIELDS
 ────────────────────────────────────────
 
 All deliverable artifacts MUST include all of the following fields.
@@ -272,16 +273,17 @@ DETERMINISTIC PLACEMENT GRAMMAR
 ────────────────────────────────────────
 
 This section defines the only valid deterministic mapping from
-deliverable header fields to artifact placement.
+artifact identity record fields to artifact placement.
 
 This grammar is normative and declarative.
 
 Any deviation from this mapping is incorrect by definition, regardless
 of tooling availability or enforcement status.
 
-Placement is a pure, total function of the deliverable header.
-Given a valid header, the repository, path, filename, and extension are
-uniquely determined.
+Placement is a pure, total function of the artifact identity record.
+Given a valid identity record, the repository, path, filename, and
+extension are uniquely determined.
+
 Missing or invalid required fields cause placement to fail; no defaults,
 fallbacks, or judgment are permitted.
 Folder creation is a deterministic side effect of placement, not a
@@ -299,7 +301,6 @@ The deliverable artifact is the directory as a whole.
 The file within that directory is the artifact body.
 
 No other fields may be used for placement derivation.
-
 
 ────────────────────────────────────────
 OPTIONAL COLLABORATION FIELD
@@ -348,9 +349,9 @@ embedded headers.
 INVARIANTS
 ────────────────────────────────────────
 
-• All required header fields are mandatory
-• No header field may imply authority, lifecycle, or ordering
-• Header values must remain truthful under reuse and reinterpretation
+• All required identity fields are mandatory
+• No identity field may imply authority, lifecycle, or ordering
+• Identity values must remain truthful under reuse and reinterpretation
 • Group delimiter choice carries no semantic meaning beyond separation
 • COLLABORATION entries are descriptive and non-authoritative
 
@@ -372,8 +373,8 @@ This specification does not define:
 VALUE STYLE GUIDANCE (NON-NORMATIVE)
 ────────────────────────────────────────
 
-This section provides recommended conventions for populating deliverable
-header fields. These conventions improve consistency and readability but
+This section provides recommended conventions for populating artifact
+identity record fields. These conventions improve consistency and readability but
 do not impose semantic meaning, authority, or enforcement.
 
 Deviation from these conventions is permitted where clarity requires it.
@@ -443,7 +444,7 @@ COLLABORATION
 CLOSING NOTE
 ────────────────────────────────────────
 
-The deliverable header is a fact surface, not a decision surface.
+The artifact identity record is a fact surface, not a decision surface.
 
 It exists to remain truthful under reuse, reinterpretation,
 disagreement, and time.
