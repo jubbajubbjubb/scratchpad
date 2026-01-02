@@ -67,14 +67,106 @@ that derives header presence from artifact body structure, is
 incompatible with this model.
 
 
-
 ## WHY THE CURRENT SPEC IS INCORRECT
+
+The current Deliverable Header specification encodes an embedded-header
+model that is incompatible with the newly explicit artifact ontology.
+
+Specifically, the specification assumes that:
+- the deliverable header is a block of text embedded within the artifact
+  body,
+- header and body are separated by textual delimiters,
+- and header presence, structure, and association are properties of the
+  artifact content itself.
+
+Under the clarified model, these assumptions are false.
+
+Deliverable artifacts are directory-scoped units, and deliverable headers
+exist as standalone files colocated with, but not contained within, the
+artifact body. As a result, header presence and association are enforced
+structurally by placement rather than by content.
+
+Because the current specification defines header structure, boundaries,
+and placement in terms of embedded content, it cannot correctly describe
+or govern a system in which:
+- artifacts do not contain headers,
+- header discovery must not require parsing artifact bodies,
+- and a fixed header filename is used.
+
+This mismatch is ontological rather than stylistic. The specification is
+internally consistent under its original assumptions, but those
+assumptions no longer hold.
+
+Any continued use of the embedded-header language risks reintroducing
+implicit parsing requirements, filename collisions, and ambiguous
+interpretation when applied to a directory-scoped artifact model.
 
 
 ## DESIGN GOALS
 
+Clarify the ontology of deliverable headers so that the specification
+correctly describes a directory-scoped artifact model.
+
+Ensure the Deliverable Header specification explicitly reflects that:
+- deliverable artifacts do not contain headers,
+- deliverable headers exist as standalone structural files,
+- and header association is established through directory co-location.
+
+Eliminate embedded-header language that implies artifact body parsing,
+textual header boundaries, or file-scoped artifacts.
+
+Preserve the existing semantic intent of header fields, including their
+role as declarative fact surfaces that do not encode authority,
+lifecycle, ordering, or evaluation.
+
+Enable deterministic, non-inferential discovery of deliverable headers
+by tooling and orchestration without inspecting artifact body content.
+
+Maintain compatibility with artifact-first governance principles,
+including explicit declaration, mechanical determinism, and loud failure
+on ambiguity.
+
+Limit changes strictly to the Deliverable Header specification, avoiding
+unnecessary impact to naming grammar, invariants, protocols, or
+enforcement mechanisms.
+
 
 ## CONSTRAINTS & NON-GOALS
+
+This design effort is constrained to modifying the Deliverable Header
+specification only.
+
+The following constraints apply:
+
+- The modification MUST preserve the existing header field set and their
+  semantic intent as declarative fact surfaces.
+- No header field may be repurposed to encode authority, lifecycle,
+  ordering, evaluation, or acceptance.
+- The corrected specification MUST remain compatible with explicit,
+  non-inferential, mechanically enforceable governance principles.
+- The design MUST assume exactly one deliverable header per artifact,
+  named `HEADER.txt`, associated by directory co-location.
+- The design MUST NOT require parsing or inspecting artifact body content
+  to discover header information.
+
+The following are explicit non-goals of this design pass:
+
+- Defining or modifying naming grammar beyond what is strictly necessary
+  to describe header structure and association.
+- Defining artifact body file naming rules or constraining artifact body
+  structure.
+- Introducing enforcement mechanisms, tooling behavior, or orchestration
+  logic.
+- Resolving legacy migration strategy beyond acknowledging historical
+  embedded-header artifacts.
+- Modifying invariants, protocols, placement specifications outside the
+  Deliverable Header spec, or repository topology.
+- Optimizing for convenience, ergonomics, or backward compatibility at
+  the expense of structural clarity.
+
+Any requirement that cannot be expressed within these constraints is out
+of scope and must be addressed through a separate design pass.
+
 
 
 ## OPEN QUESTIONS
