@@ -1,1 +1,199 @@
+# Commit Plan — FILE_DIRECTORY_NAMING_GRAMMAR Reconciliation
 
+This plan consists of **atomic, self-contained commits**.
+Each commit may be safely re-run if partial application or cleanup is required.
+No commit introduces new concepts or expands scope.
+
+Commits are ordered for dependency sanity, not narrative flow.
+
+---
+
+## COMMIT 1 — REMOVE DERIVATION SEMANTICS FROM NAMING GRAMMAR
+
+**Intent**
+Eliminate all derivation, lineage, or process-related semantics from the grammar.
+
+**Actions**
+- Delete the entire “Derived Artifact Naming” section.
+- Remove all references to:
+  - base ARTIFACT_ID preservation
+  - derivation markers
+  - process encoding
+  - identity continuity via filename shape
+
+**Success Check**
+- The grammar contains no references to derivation, lineage, or process.
+- Filenames are governed strictly as standalone forms.
+
+---
+
+## COMMIT 2 — PURGE IDENTITY-IMPLYING LANGUAGE
+
+**Intent**
+Ensure filenames are never interpretable as identity carriers.
+
+**Actions**
+- Remove or rephrase any sentence implying that:
+  - names identify artifacts
+  - collisions imply identity conflict
+  - names “claim” identity or function
+- Replace such language with purely structural phrasing
+  (e.g., “structural conflict”, “invalid state”).
+
+**Success Check**
+- Identity is never attributed to names.
+- All identity references defer implicitly or explicitly to `IDENTITY.txt`.
+
+---
+
+## COMMIT 3 — REMOVE HEADER-ERA ASSUMPTIONS
+
+**Intent**
+Eliminate residual assumptions from the deliverable-header era.
+
+**Actions**
+- Remove language that presumes:
+  - embedded headers
+  - filename-based identity
+  - implicit provenance from paths
+- Ensure all references to metadata defer to explicit artifacts governed elsewhere.
+
+**Success Check**
+- The document is coherent without knowledge of headers.
+- No concept relies on filename-embedded metadata.
+
+---
+
+## COMMIT 4 — TIGHTEN GRAMMAR VS PLACEMENT BOUNDARY
+
+**Intent**
+Make the grammar/placement separation unambiguous and non-overlapping.
+
+**Actions**
+- Remove or rephrase any language implying:
+  - routing
+  - repository semantics
+  - placement outcomes
+- Ensure all placement mentions are strictly delegative (“governed elsewhere”).
+
+**Success Check**
+- Grammar validity is decidable without knowing file location.
+- Placement rules cannot be inferred from this spec.
+
+---
+
+## COMMIT 5 — CONVERT DEFENSIVE PROSE INTO STRUCTURAL RULES
+
+**Intent**
+Replace cautionary language with binary structural outcomes.
+
+**Actions**
+- Remove explanatory warnings aimed at preventing misuse.
+- Retain only:
+  - mandatory rules
+  - explicit failure conditions
+- Express invalidity as structural failure, not behavioral error.
+
+**Success Check**
+- The spec reads as executable constraints, not advice.
+- No paragraph exists solely to warn or persuade.
+
+---
+
+## COMMIT 6 — MECHANICAL DECIDABILITY PASS
+
+**Intent**
+Guarantee all rules are mechanically checkable.
+
+**Actions**
+- Review every MUST / MUST NOT rule for:
+  - interpretability without context
+  - decidability via direct application
+- Remove or rewrite any rule requiring judgment, intent, or inference.
+
+**Success Check**
+- A machine can validate a name using only this document.
+- Ambiguity is defined strictly as undecidability.
+
+---
+
+## COMMIT 7 — TERMINOLOGY NORMALIZATION
+
+**Intent**
+Align terminology with the rest of the governance corpus.
+
+**Actions**
+- Normalize terms to match:
+  - identity specs
+  - placement specs
+  - invariant language
+- Eliminate casual reuse of terms with different meanings elsewhere
+  (e.g., identity, function, authority).
+
+**Success Check**
+- No term conflicts semantically with its usage in other canonical specs.
+- Identical concepts use identical language.
+
+---
+
+## COMMIT 8 — FAILURE SEMANTICS CONSOLIDATION
+
+**Intent**
+Preserve loud, correct failure behavior without redundancy.
+
+**Actions**
+- Consolidate repeated failure rules where possible.
+- Ensure all invalid states:
+  - halt execution
+  - permit no fallback
+  - require explicit correction
+- Remove duplicate restatements that do not add constraint.
+
+**Success Check**
+- Failure semantics are strict, explicit, and non-repetitive.
+- No permissive or recovery language remains.
+
+---
+
+## COMMIT 9 — FINAL COHERENCE & ONTOLOGY CHECK
+
+**Intent**
+Validate internal consistency after reconciliation.
+
+**Actions**
+- Verify:
+  - no orphaned concepts remain
+  - no deleted semantics are indirectly referenced
+  - section ordering still makes sense
+- Make no semantic changes.
+
+**Success Check**
+- The document is internally consistent and ontologically clean.
+- All sections reinforce the same model.
+
+---
+
+## COMMIT 10 — FORMATTING & READABILITY PASS
+
+**Intent**
+Improve presentation only.
+
+**Actions**
+- Normalize spacing, section breaks, and headings.
+- Improve readability without changing meaning.
+
+**Success Check**
+- No semantic diff exists.
+- Remaining discussion is about location, not meaning.
+
+---
+
+## END STATE
+
+At completion:
+- The spec governs **name form only**
+- Identity is exclusively declared in `IDENTITY.txt`
+- Placement is governed elsewhere
+- All rules are mechanically checkable
+- Failure is loud, binary, and correct
+- The document is boring, strict, and inevitable
