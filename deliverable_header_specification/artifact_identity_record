@@ -6,8 +6,7 @@ This section defines the complete and only valid contents of the
 structural identity file named IDENTITY.txt.
 
 IDENTITY.txt is a standalone structural file.
-It is not embedded within any artifact body.
-It contains no content other than the artifact identity record.
+It contains the complete artifact identity record.
 
 <IDENTITY>
 
@@ -114,7 +113,7 @@ Each deliverable artifact directory MUST contain exactly one file named:
 
 IDENTITY.txt
 
-IDENTITY.txt contains the complete artifact identity record and nothing else.
+IDENTITY.txt contains the complete artifact identity record.
 
 The artifact identity record within IDENTITY.txt MUST be delimited by:
 
@@ -122,9 +121,6 @@ The artifact identity record within IDENTITY.txt MUST be delimited by:
 </IDENTITY>
 
 All required and optional identity fields MUST appear within this block.
-
-No artifact identity content may appear outside IDENTITY.txt.
-Embedding identity records within artifact body files is prohibited.
 
 ────────────────────────────────────────
 IDENTITY DISCOVERY & STRUCTURAL FAILURE
@@ -135,10 +131,7 @@ Identity discovery is purely structural.
 Tooling and orchestration MUST locate the artifact identity record by
 resolving IDENTITY.txt within the artifact directory.
 
-Tooling MUST NOT:
-• parse artifact body files for identity content
-• inspect filenames other than IDENTITY.txt for identity discovery
-• infer identity presence from partial, embedded, or duplicated content
+Identity discovery is constrained exclusively to IDENTITY.txt.
 
 A deliverable artifact is non-conforming if:
 • IDENTITY.txt is missing
@@ -341,8 +334,7 @@ may have expressed identity information in embedded or ad hoc forms.
 Such artifacts are considered legacy and are outside the normative
 scope of this specification unless explicitly migrated.
 
-This specification defines no rules for discovering or interpreting
-embedded headers.
+Legacy identity representations are out of scope for this specification.
 
 ────────────────────────────────────────
 INVARIANTS
