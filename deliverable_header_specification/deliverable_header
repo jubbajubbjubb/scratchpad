@@ -66,23 +66,18 @@ Reuse outside deliverable artifacts requires explicit declaration elsewhere.
 HEADER STRUCTURE (NORMATIVE)
 ────────────────────────────────────────
 
-Deliverable artifacts are directory-scoped units, not single files.
+All deliverable artifacts MUST include an explicit header block delimited by:
 
-Each deliverable artifact directory MUST contain exactly one deliverable
-header, which exists as a standalone structural file named `HEADER.txt`.
+<DELIVERABLE_HEADER>
+</DELIVERABLE_HEADER>
 
-The deliverable header is not embedded within the artifact body.
-Artifacts themselves do not contain headers.
+All header fields MUST appear within this block.
 
-Association between a deliverable header and its corresponding artifact
-is established solely through directory co-location.
+The deliverable body consists of all content following the closing
+</DELIVERABLE_HEADER> tag.
 
-The presence, uniqueness, and association of the deliverable header are
-structural properties of the artifact directory, not properties of the
-artifact body.
+No other markers are required to establish the header/body boundary.
 
-Any model that treats the deliverable header as embedded content is
-incorrect under this specification.
 
 ────────────────────────────────────────
 REQUIRED HEADER FIELDS
@@ -208,8 +203,8 @@ Any deviation from this mapping is incorrect by definition, regardless
 of tooling availability or enforcement status.
 
 Placement is a pure, total function of the deliverable header.
-Given a valid header, the repository and artifact directory are uniquely
-determined.
+Given a valid header, the repository, path, filename, and extension are
+uniquely determined.
 Missing or invalid required fields cause placement to fail; no defaults,
 fallbacks, or judgment are permitted.
 Folder creation is a deterministic side effect of placement, not a
@@ -218,21 +213,15 @@ decision.
 The placement of an artifact is derived as follows:
 
 • ARTIFACT_DOMAIN determines the canonical repository
-• ARTIFACT_FUNCTION determines the parent path class within the repository
-• ARTIFACT_ID determines the artifact directory name
-• ARTIFACT_ID also determines the canonical artifact body filename within that directory
-• ARTIFACT_FORMAT determines the file extension of the artifact body file
-
-The artifact body consists of exactly one file named after ARTIFACT_ID,
-located within the artifact directory.
-
-The deliverable header exists as a separate structural file named
-HEADER.txt colocated within the same directory.
+• ARTIFACT_FUNCTION determines the path class within the repository
+• ARTIFACT_ID determines the filename
+• ARTIFACT_FORMAT determines the file extension
 
 No other fields may be used for placement derivation.
 
 If a required field for placement is absent, placement is undefined
 and the artifact is non-conforming.
+
 
 ────────────────────────────────────────
 OPTIONAL COLLABORATION FIELD
