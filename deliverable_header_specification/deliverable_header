@@ -2,6 +2,9 @@
 CONTENT
 ────────────────────────────────────────
 
+The following defines the complete contents of HEADER.txt
+for a deliverable artifact.
+
 <DELIVERABLE_HEADER>
 
 EMITTER:
@@ -17,7 +20,6 @@ CREATED_IN_CONTEXT:
 COLLABORATION:
 
 </DELIVERABLE_HEADER>
-
 
 ────────────────────────────────────────
 EXPLANATION
@@ -295,19 +297,14 @@ Rules:
 LEGACY COMPATIBILITY
 ────────────────────────────────────────
 
-Artifacts created prior to adoption of the explicit header block may omit
-the <DELIVERABLE_HEADER> / </DELIVERABLE_HEADER> delimiters.
+Artifacts created prior to adoption of the structural HEADER.txt model
+may have expressed header information in embedded or ad hoc forms.
 
-For such artifacts:
-• The header is interpreted as the contiguous block of header fields at
-  the beginning of the artifact.
-• Legacy markers such as <DELIVERABLE HEADER>, <END HEADER>, or
-  <DELIVERABLE BODY BEGINS HERE> may be used to aid human interpretation.
-• Absence of explicit header delimiters does not invalidate legacy artifacts.
+Such artifacts are considered legacy and are outside the normative
+scope of this specification unless explicitly migrated.
 
-All newly created deliverable artifacts MUST use the explicit header
-block.
-
+This specification defines no rules for discovering or interpreting
+embedded headers.
 
 ────────────────────────────────────────
 INVARIANTS
