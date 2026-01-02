@@ -138,34 +138,104 @@ This commit:
 This commit is corrective and subtractive only.
 
 
-## COMMIT 6 — SPECIFICATION RENAME (NO SEMANTIC CHANGE)
+<COMMIT_TASK>
 
-Rename the Deliverable Header specification to reflect its true
-ontological role as an artifact declaration requirement.
+## COMMIT 6 — SPECIFICATION IDENTITY RENAME
+
+Rename the Deliverable Header specification to
+“Artifact Identity Record Specification”.
 
 This commit:
-• Renames the specification to "Artifact Declaration Specification"
-• Updates internal titles and headings to reflect the new name
+• Renames the document title and internal self-references only
+• Does not rename files, tags, or structural elements
 • Introduces no semantic, structural, or behavioral changes
-• Preserves all existing rules, fields, and invariants verbatim
+• Preserves all existing rules and constraints verbatim
 
-This commit is a naming-only normalization pass.
+This commit is a naming correction only.
+It establishes correct ontology for subsequent changes.
 
+</COMMIT_TASK>
 
-## COMMIT N-1 — SANITY & CONTINUITY CHECK
+<COMMIT_TASK>
 
-Perform an internal coherence check on the updated specification.
+## COMMIT 7 — STRUCTURAL FILE RENAME (HEADER.txt → IDENTITY.txt)
+
+Rename the structural file used to store artifact identity information
+from HEADER.txt to IDENTITY.txt.
 
 This commit:
-• Verifies consistency across sections
-• Confirms no conflicting assumptions remain
-• Introduces no new concepts or rules
-• Makes no structural changes
+• Replaces all references to HEADER.txt with IDENTITY.txt
+• Clarifies that IDENTITY.txt is a required structural artifact
+• Introduces no new fields or rules
+• Does not alter placement grammar or enforcement semantics
 
-This is a validation-only pass.
+This commit is structural and declarative only.
 
+</COMMIT_TASK>
 
+<COMMIT_TASK>
 
+## COMMIT 8 — ENVELOPE TAG RENAME (<DELIVERABLE_HEADER> → <IDENTITY>)
+
+Rename the identity envelope tags used within the structural file.
+
+This commit:
+• Replaces <DELIVERABLE_HEADER> / </DELIVERABLE_HEADER>
+  with <IDENTITY> / </IDENTITY>
+• Makes no changes to field names, ordering, or meaning
+• Introduces no new validation or enforcement logic
+
+This commit removes residual “header” semantics at the syntax level.
+
+</COMMIT_TASK>
+
+<COMMIT_TASK>
+
+## COMMIT 9 — TERMINOLOGY CONSOLIDATION (HEADER → IDENTITY)
+
+Eliminate remaining conceptual use of “header” terminology in favor of
+“identity record”.
+
+This commit:
+• Updates descriptive language, section titles, and prose
+• Removes conceptual framing that implies header/body relationships
+• Preserves all normative requirements unchanged
+
+This commit is linguistic and clarificatory only.
+
+</COMMIT_TASK>
+
+<COMMIT_TASK>
+
+## COMMIT 10 — REDUNDANT DEFENSIVE LANGUAGE PRUNING
+
+Remove defensive language that is no longer necessary after the
+identity-record model is established.
+
+This commit:
+• Removes prohibitions whose misuse is now structurally impossible
+• Preserves all invariants and failure conditions
+• Introduces no new permissions or relaxations
+
+This commit tightens the specification without changing behavior.
+
+</COMMIT_TASK>
+
+<COMMIT_TASK>
+
+## COMMIT 11 — FINAL COHERENCE & ONTOLOGY CHECK
+
+Perform a final coherence pass on the renamed and refactored
+specification.
+
+This commit:
+• Verifies internal consistency of terminology and scope
+• Confirms no orphaned “header” semantics remain
+• Introduces no new rules, structures, or concepts
+
+This commit is validation-only.
+
+</COMMIT_TASK>
 
 ## COMMIT N — FORMATTING PASS
 
