@@ -92,6 +92,23 @@ This clarification exists to prevent omission during commit planning and
 does not expand scope beyond correcting the Deliverable Header
 specification.
 
+## ARTIFACT BODY IDENTITY (CLARIFICATION)
+
+A deliverable artifact consists of exactly one artifact body file.
+
+The artifact body file is the artifact itself.
+The artifact directory is a structural container, not the artifact.
+
+Under this model:
+- Each deliverable artifact directory contains exactly one artifact body file.
+- `ARTIFACT_ID` determines both:
+  • the artifact directory name, and
+  • the artifact body filename (prior to extension).
+- No deliverable artifact may contain multiple artifact body files.
+
+Any model that treats an artifact directory as containing multiple body
+files, or that treats the directory itself as the artifact, is incompatible
+with this ontology.
 
 
 ## WHY THE CURRENT SPEC IS INCORRECT
