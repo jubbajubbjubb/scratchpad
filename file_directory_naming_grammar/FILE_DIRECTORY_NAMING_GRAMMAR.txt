@@ -148,21 +148,21 @@ Normative rules:
 • File and directory names MUST NOT collide.
 • Suffix-based disambiguation (including numeric, semantic, or
   cosmetic suffixes) is forbidden.
-• A collision indicates that two artifacts claim the same identity
-  or function.
+• A collision indicates an invalid structural state in which the
+  same name is assigned more than once.
 
 Collision Resolution Semantics:
 
-• When a collision occurs, creation of a new artifact MUST STOP.
-• The existing artifact takes precedence by default.
+• When a collision occurs, creation of a new name MUST STOP.
+• The pre-existing name takes precedence by default.
 • Resolution MUST occur by:
-  – merging changes into the existing artifact, OR
-  – amending the existing artifact via an explicit commit.
+  – modifying the existing named artifact via explicit commit, OR
+  – abandoning the attempted creation.
 
-Creation of parallel artifacts to resolve collisions is forbidden.
+Creation of parallel names to resolve collisions is forbidden.
 
-Collision resolution is a governance-relevant decision and MUST be
-explicitly recorded through commit history.
+Collision resolution is a governance-relevant structural decision and
+MUST be explicitly recorded through commit history.
 
 ────────────────────────────────────────
 HUMAN VS MACHINE INTERPRETATION
