@@ -44,6 +44,29 @@ the specification language and examples.
 
 ## NEWLY EXPLICIT TRUTH
 
+A deliverable artifact is a directory-scoped unit, not a single file.
+
+Each deliverable artifact is associated with exactly one deliverable
+header, which exists as a standalone file named `HEADER.txt`.
+
+The deliverable header is not embedded within the artifact body.
+Artifacts themselves do not contain headers.
+
+Association between a deliverable header and its corresponding artifact
+is established solely through directory co-location.
+
+The presence, uniqueness, and association of the deliverable header are
+structural properties of the artifact directory, not properties of the
+artifact body.
+
+As a result, artifact identity, header structure, and artifact content
+exist in separate namespaces and must not be conflated.
+
+Any specification language that treats headers as embedded content, or
+that derives header presence from artifact body structure, is
+incompatible with this model.
+
+
 
 ## WHY THE CURRENT SPEC IS INCORRECT
 
