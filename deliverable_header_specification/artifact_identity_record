@@ -9,7 +9,7 @@ IDENTITY.txt is a standalone structural file.
 It is not embedded within any artifact body.
 It contains no content other than the artifact identity record.
 
-<DELIVERABLE_HEADER>
+<IDENTITY>
 
 EMITTER:
 REQUESTED_BY:
@@ -23,7 +23,7 @@ CREATED_IN_CONTEXT:
 [OPTIONAL — REPEATABLE]
 COLLABORATION:
 
-</DELIVERABLE_HEADER>
+</IDENTITY>
 
 ────────────────────────────────────────
 EXPLANATION
@@ -119,8 +119,8 @@ IDENTITY.txt contains the complete artifact identity record and nothing else.
 
 The artifact identity record within IDENTITY.txt MUST be delimited by:
 
-<DELIVERABLE_HEADER>
-</DELIVERABLE_HEADER>
+<IDENTITY>
+</IDENTITY>
 
 All required and optional identity fields MUST appear within this block.
 
