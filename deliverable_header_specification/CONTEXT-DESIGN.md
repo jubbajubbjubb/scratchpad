@@ -66,6 +66,33 @@ Any specification language that treats headers as embedded content, or
 that derives header presence from artifact body structure, is
 incompatible with this model.
 
+## EXPLICIT PLACEMENT IMPLICATION (CLARIFICATION)
+
+Under the directory-scoped artifact model, `ARTIFACT_ID` identifies an
+artifact directory, not merely a file.
+
+This does not introduce a new placement rule. It makes explicit what was
+previously implicit under a file-scoped interpretation.
+
+As a result:
+
+- `ARTIFACT_DOMAIN` determines the canonical repository.
+- `ARTIFACT_FUNCTION` determines the parent path class within that repository.
+- `ARTIFACT_ID` determines the artifact directory name.
+- The artifact body file is named exactly `ARTIFACT_ID` and resides within
+  the artifact directory.
+- The deliverable header exists as a structural file (`HEADER.txt`)
+  colocated within the artifact directory.
+
+Any language in the Deliverable Header specification that describes
+`ARTIFACT_ID` as determining a filename assumes a file-scoped artifact
+model and must be corrected to reflect directory-scoped artifacts.
+
+This clarification exists to prevent omission during commit planning and
+does not expand scope beyond correcting the Deliverable Header
+specification.
+
+
 
 ## WHY THE CURRENT SPEC IS INCORRECT
 
