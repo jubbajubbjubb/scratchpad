@@ -126,8 +126,6 @@ All required and optional identity fields MUST appear within this block.
 IDENTITY DISCOVERY & STRUCTURAL FAILURE
 ────────────────────────────────────────
 
-Identity discovery is purely structural.
-
 Tooling and orchestration MUST locate the artifact identity record by
 resolving IDENTITY.txt within the artifact directory.
 
