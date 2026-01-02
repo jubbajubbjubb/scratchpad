@@ -139,7 +139,14 @@ ARTIFACT_FUNCTION:
 ARTIFACT_ID
 -----------
 
-ARTIFACT_ID declares the stable identity of an artifact.
+ARTIFACT_ID declares the stable identity of a deliverable artifact.
+
+A deliverable artifact is a directory-scoped identity unit, not a
+single file.
+
+ARTIFACT_ID identifies the artifact itself and is used to determine:
+• the artifact directory name
+• the artifact body filename within that directory
 
 It is a human-chosen identifier selected for clarity and reference.
 Tooling and orchestration MUST treat the value as opaque and MUST NOT
@@ -159,6 +166,7 @@ This field may be referenced by routing or naming rules.
 Omission is permitted only for legacy deliverable artifacts created
 before adoption of this specification; newly created artifacts are
 expected to include this field.
+
 
 ARTIFACT_FORMAT
 ---------------
@@ -214,13 +222,14 @@ The placement of an artifact is derived as follows:
 
 • ARTIFACT_DOMAIN determines the canonical repository
 • ARTIFACT_FUNCTION determines the path class within the repository
-• ARTIFACT_ID determines the filename
+• ARTIFACT_ID determines the artifact directory name
+• ARTIFACT_ID also determines the artifact body filename
 • ARTIFACT_FORMAT determines the file extension
 
-No other fields may be used for placement derivation.
+The deliverable artifact is the directory as a whole.
+The file within that directory is the artifact body.
 
-If a required field for placement is absent, placement is undefined
-and the artifact is non-conforming.
+No other fields may be used for placement derivation.
 
 
 ────────────────────────────────────────
