@@ -95,26 +95,6 @@ Length Constraints:
 
 These constraints are mandatory and mechanically checkable.
 
-Derived Artifact Naming:
-
-Derived artifacts MUST preserve the base ARTIFACT_ID verbatim and
-append a derivation marker using a double underscore delimiter.
-
-The canonical pattern for derived artifacts is:
-
-<ARTIFACT_ID>__<derivation>.<extension>
-
-Rules for derivation markers:
-
-• The base ARTIFACT_ID MUST be preserved exactly.
-• Derivation markers MUST be lowercase.
-• Derivation markers MUST encode process only.
-• Derivation markers MUST NOT encode versioning, ordering, lifecycle,
-  authority, or evaluative semantics.
-
-Derived artifacts MUST NOT alter the canonical identity of the base
-artifact.
-
 ────────────────────────────────────────
 FILE EXTENSIONS & ARTIFACT_FORMAT
 ────────────────────────────────────────
@@ -379,10 +359,6 @@ The following names are ill-formed and MUST be rejected:
 • CO  
   – invalid: minimum length requirement not met
     (Length Constraints)
-
-• CORE_INVARIANT_SET__IR  
-  – invalid: derivation markers MUST be lowercase
-    (Derived Artifact Naming)
 
 ────────────────────────────────────────
 MIGRATION & LEGACY
