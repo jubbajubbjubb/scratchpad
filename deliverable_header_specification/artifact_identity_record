@@ -3,11 +3,11 @@ CONTENT
 ────────────────────────────────────────
 
 This section defines the complete and only valid contents of the
-structural header file named HEADER.txt.
+structural identity file named IDENTITY.txt.
 
-HEADER.txt is a standalone structural file.
+IDENTITY.txt is a standalone structural file.
 It is not embedded within any artifact body.
-It contains no content other than the deliverable header.
+It contains no content other than the artifact identity record.
 
 <DELIVERABLE_HEADER>
 
@@ -108,23 +108,23 @@ Reuse outside deliverable artifacts requires explicit declaration elsewhere.
 HEADER STRUCTURE (NORMATIVE)
 ────────────────────────────────────────
 
-The deliverable header is a standalone structural file.
+The artifact identity record is a standalone structural file.
 
 Each deliverable artifact directory MUST contain exactly one file named:
 
-HEADER.txt
+IDENTITY.txt
 
-HEADER.txt contains the complete deliverable header and nothing else.
+IDENTITY.txt contains the complete artifact identity record and nothing else.
 
-The header within HEADER.txt MUST be delimited by:
+The artifact identity record within IDENTITY.txt MUST be delimited by:
 
 <DELIVERABLE_HEADER>
 </DELIVERABLE_HEADER>
 
-All required and optional header fields MUST appear within this block.
+All required and optional identity fields MUST appear within this block.
 
-No deliverable header content may appear outside HEADER.txt.
-Embedding headers within artifact body files is prohibited.
+No artifact identity content may appear outside IDENTITY.txt.
+Embedding identity records within artifact body files is prohibited.
 
 ────────────────────────────────────────
 HEADER DISCOVERY & STRUCTURAL FAILURE
@@ -132,21 +132,19 @@ HEADER DISCOVERY & STRUCTURAL FAILURE
 
 Header discovery is purely structural.
 
-Tooling and orchestration MUST locate the deliverable header by resolving
-HEADER.txt within the artifact directory.
+Tooling and orchestration MUST locate the artifact identity record by
+resolving IDENTITY.txt within the artifact directory.
 
 Tooling MUST NOT:
-• parse artifact body files for header content
-• inspect filenames other than HEADER.txt for header discovery
-• infer header presence from partial, embedded, or duplicated content
-
-Structural failure is loud and terminal.
+• parse artifact body files for identity content
+• inspect filenames other than IDENTITY.txt for identity discovery
+• infer identity presence from partial, embedded, or duplicated content
 
 A deliverable artifact is non-conforming if:
-• HEADER.txt is missing
-• more than one HEADER.txt exists
-• HEADER.txt does not contain exactly one <DELIVERABLE_HEADER> block
-• the header block is malformed or ambiguous
+• IDENTITY.txt is missing
+• more than one IDENTITY.txt exists
+• IDENTITY.txt does not contain exactly one <DELIVERABLE_HEADER> block
+• the identity block is malformed or ambiguous
 
 No fallback, inference, or recovery behavior is permitted.
 
@@ -337,8 +335,8 @@ Rules:
 LEGACY COMPATIBILITY
 ────────────────────────────────────────
 
-Artifacts created prior to adoption of the structural HEADER.txt model
-may have expressed header information in embedded or ad hoc forms.
+Artifacts created prior to adoption of the structural IDENTITY.txt model
+may have expressed identity information in embedded or ad hoc forms.
 
 Such artifacts are considered legacy and are outside the normative
 scope of this specification unless explicitly migrated.
