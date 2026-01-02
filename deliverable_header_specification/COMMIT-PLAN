@@ -105,19 +105,24 @@ This commit introduces ontology clarification only and intentionally
 does not define header placement, structural filenames, or discovery
 rules.
 
-## COMMIT 3 — HEADER STRUCTURE & DISCOVERY RULES
+## COMMIT 3 — HEADER STRUCTURE & DISCOVERY (STRUCTURAL HEADER FILE)
 
 Define the structural placement and discovery model for deliverable
-headers.
+headers within directory-scoped artifacts.
 
 This commit:
-• Specifies `HEADER.txt` as a fixed structural filename
-• States that headers are standalone artifacts
-• Prohibits parsing of artifact body content for header discovery
-• Defines loud failure conditions for missing or ambiguous headers
 
-No enforcement mechanisms are introduced.
+• Declares `HEADER.txt` as a fixed, structural filename
+• Specifies that exactly one `HEADER.txt` MUST exist per artifact directory
+• States that the deliverable header is a standalone structural file
+• Prohibits embedding headers within artifact body content
+• Prohibits parsing or inspecting artifact body files for header discovery
+• Defines loud structural failure when `HEADER.txt` is missing,
+  duplicated, or ambiguous
 
+This commit defines header structure and discovery only.
+It does not modify artifact identity, directory structure,
+naming grammar, or enforcement mechanisms.
 
 ## COMMIT 4 — EMBEDDED-HEADER LANGUAGE REMOVAL
 
