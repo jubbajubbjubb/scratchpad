@@ -138,7 +138,21 @@ This commit:
 This commit is corrective and subtractive only.
 
 
-## COMMIT 5 — SANITY & CONTINUITY CHECK
+## COMMIT 6 — SPECIFICATION RENAME (NO SEMANTIC CHANGE)
+
+Rename the Deliverable Header specification to reflect its true
+ontological role as an artifact declaration requirement.
+
+This commit:
+• Renames the specification to "Artifact Declaration Specification"
+• Updates internal titles and headings to reflect the new name
+• Introduces no semantic, structural, or behavioral changes
+• Preserves all existing rules, fields, and invariants verbatim
+
+This commit is a naming-only normalization pass.
+
+
+## COMMIT N-1 — SANITY & CONTINUITY CHECK
 
 Perform an internal coherence check on the updated specification.
 
@@ -151,7 +165,9 @@ This commit:
 This is a validation-only pass.
 
 
-## COMMIT 6 — FORMATTING PASS
+
+
+## COMMIT N — FORMATTING PASS
 
 Apply formatting and presentation cleanup.
 
