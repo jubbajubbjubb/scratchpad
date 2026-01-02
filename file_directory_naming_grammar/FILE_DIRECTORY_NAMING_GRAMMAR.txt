@@ -1,16 +1,3 @@
-<DELIVERABLE_HEADER>
-
-EMITTER: GOV - Archivist
-REQUESTED_BY: USER
-ARTIFACT_DOMAIN: SPECIFICATION
-ARTIFACT_FUNCTION: GRAMMAR
-ARTIFACT_ID: FILE_DIRECTORY_NAMING
-ARTIFACT_FORMAT: PLAIN_TEXT
-ARTIFACT_GROUP: SPECIFICATION; GOVERNANCE_HYGIENE; NAMING
-CREATED_IN_CONTEXT: GOVERNANCE FORM GRAMMAR FORMALIZATION
-
-</DELIVERABLE_HEADER>
-
 ────────────────────────────────────────
 FILE_DIRECTORY_NAMING_GRAMMAR
 ────────────────────────────────────────
@@ -410,4 +397,3 @@ Migration consists solely of normalization to the current specification.
 There is no compatibility mode and no grandfathering.
 
 Any file or directory that does not conform is not admissible.
-
