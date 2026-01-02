@@ -5,8 +5,8 @@ CONTENT
 This section defines the complete and only valid contents of the
 structural identity file named IDENTITY.txt.
 
-IDENTITY.txt is a standalone structural file.
-It contains the complete artifact identity record.
+IDENTITY.txt is a standalone structural file containing the complete
+artifact identity record.
 
 <IDENTITY>
 
