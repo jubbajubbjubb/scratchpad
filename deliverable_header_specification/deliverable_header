@@ -68,6 +68,24 @@ It does not redefine artifact identity, which remains vested in the
 artifact body file.
 
 ────────────────────────────────────────
+ARTIFACT BODY FILE CARDINALITY
+────────────────────────────────────────
+
+Each deliverable artifact directory contains exactly one artifact body file.
+
+The artifact body file is the sole bearer of artifact identity and content.
+
+The presence of multiple artifact body files within a single artifact
+directory is incompatible with the deliverable artifact model.
+
+This specification assumes the exactly-one artifact body file invariant
+but does not define discovery, validation, or enforcement mechanisms
+for artifact body files.
+
+Governance, invariants, or tooling external to this specification are
+responsible for enforcing this constraint.
+
+────────────────────────────────────────
 APPLICABILITY
 ────────────────────────────────────────
 
