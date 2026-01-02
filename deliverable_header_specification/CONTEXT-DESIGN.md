@@ -168,5 +168,66 @@ Any requirement that cannot be expressed within these constraints is out
 of scope and must be addressed through a separate design pass.
 
 
+## ADDITIONAL FINDINGS
 
-## OPEN QUESTIONS
+The following findings were surfaced during this design pass and are
+recorded here as explicit facts. All items listed below are resolved and
+do not represent open questions or pending decisions.
+
+### Global Structural Header Filename
+
+Deliverable headers use a fixed structural filename: `HEADER.txt`.
+
+`HEADER.txt` is a global structural filename with fixed meaning. It is not
+an artifact body, is not governed by `ARTIFACT_ID`, and is not subject to
+naming grammar or placement derivation.
+
+Its presence is structural and universally recognized by tooling and
+orchestration without inference.
+
+### Artifact Identity Collision Prevention
+
+An artifact whose `ARTIFACT_ID` resolves to `HEADER` is structurally
+incompatible with the directory-scoped artifact model.
+
+Because `HEADER.txt` is required to exist within every artifact
+directory, allowing an artifact named `HEADER` would create an
+unavoidable filesystem collision.
+
+To preserve mechanical determinism and filesystem validity, the token
+`HEADER` is treated as a structurally reserved token and is forbidden for
+use as an `ARTIFACT_ID`.
+
+This reservation is structural rather than semantic and is escalated to
+governance for formal declaration via a **STRUCTURAL RESERVED TOKENS**
+policy.
+
+### Header Scope and Discovery Model
+
+Deliverable artifacts are directory-scoped units.
+
+Each deliverable artifact directory contains exactly one deliverable
+header file named `HEADER.txt`.
+
+Deliverable headers are standalone plaintext artifacts and are not
+embedded within artifact body content.
+
+Header discovery is performed exclusively via deterministic filename
+lookup. Tooling and orchestration MUST NOT inspect, parse, or infer header
+information from artifact body content.
+
+Failure to locate exactly one valid `HEADER.txt` within an artifact
+directory constitutes a structural failure and MUST result in loud
+failure.
+
+### Structural Filename Governance
+
+Structural filenames (such as `HEADER.txt`) are treated as a finite and
+explicitly governed set.
+
+The Deliverable Header specification does not enumerate or reserve
+structural filenames beyond `HEADER.txt`.
+
+Any expansion of the structural filename set is out of scope for this
+design pass and must be introduced through explicit governance policy
+updates.
