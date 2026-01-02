@@ -3,373 +3,82 @@ FILE_DIRECTORY_NAMING_GRAMMAR
 ────────────────────────────────────────
 
 ────────────────────────────────────────
-PURPOSE
+SCOPE
 ────────────────────────────────────────
 
-This specification defines a formal grammar governing the admissible
-form of names used for files and directories.
+This specification defines the complete and exclusive grammar for
+admissible file and directory names within governed repositories.
 
-The purpose of this grammar is to prevent semantic smuggling via form
-by constraining naming to mechanically checkable structure that does
-not assign meaning, authority, lifecycle, or intent.
-
-────────────────────────────────────────
-SCOPE & APPLICABILITY
-────────────────────────────────────────
-
-This specification governs the admissible form of names assigned to
-files and directories.
-
-This grammar applies equally and without distinction to:
-• file names
-• directory names
-
-All names that exist within governed repositories MUST conform to this
-specification.
-
-This specification governs form only.
-It MUST NOT be used to infer or define placement, identity, authority,
-behavior, acceptance, or correctness of artifact content.
-
-────────────────────────────────────────
-STABILITY & RENAME SEMANTICS
-────────────────────────────────────────
-
-Names governed by this specification are presumed immutable.
-
-A rename is an exceptional event and MUST be treated as a first-class
-change requiring an explicit commit.
-
-Any rename MUST update the associated deliverable header.
-Any path change constitutes an explicit file or directory move.
-
-There is no concept of a cosmetic or harmless rename.
-Renames and moves are governance-relevant events with provenance.
+Any name not conforming to this grammar is invalid.
 
 ────────────────────────────────────────
 SEMANTIC CONSTRAINTS
 ────────────────────────────────────────
 
-Names governed by this specification MUST NOT encode semantic meaning
-belonging to any of the following disallowed classes:
+Names MUST NOT encode semantics belonging to any of the following
+disallowed classes:
 
 • Lifecycle semantics
-  (including but not limited to: FINAL, DRAFT, DEPRECATED)
-
 • Authority semantics
-  (including but not limited to: CANONICAL, OFFICIAL)
-
 • Ordering or versioning semantics
-  (including but not limited to: V1, V2, NEXT)
-
 • Evaluative semantics
-  (including but not limited to: GOOD, BAD, CORRECT)
 
 No other semantic restrictions apply.
 
-Any semantic content not belonging to the explicitly disallowed classes
-above is permitted.
-
-This grammar is purely prohibitive.
-It does not prescribe meaning, intent, hierarchy, importance, or usage.
+This grammar governs form only.
 
 ────────────────────────────────────────
-CHARACTER SET & SHAPE GRAMMAR
+CHARACTER SET & SHAPE
 ────────────────────────────────────────
 
-Names governed by this specification MUST conform to the following
-character set, casing, and length constraints.
+Names MUST conform to all of the following constraints:
 
-Character Set and Casing:
+Character Set:
+• ASCII uppercase letters A–Z
+• Underscore character (`_`)
 
-• Names MUST consist solely of ASCII uppercase letters A–Z and
-  underscore characters (`_`).
-• All alphabetic characters MUST be uppercase.
-• No other characters are permitted.
+Casing:
+• All alphabetic characters MUST be uppercase
 
-Length Constraints:
+Length:
+• Minimum length: 3 characters
+• Maximum length: 64 characters
+• Underscores are excluded from length calculation
 
-• Names MUST be at least 3 characters in length.
-• Names MUST NOT exceed 64 characters in length.
-• Underscore characters are excluded from length calculations.
-
-These constraints are mandatory and mechanically checkable.
+No other characters are permitted.
 
 ────────────────────────────────────────
-FILE EXTENSIONS & ARTIFACT_FORMAT
+FILE EXTENSIONS
 ────────────────────────────────────────
 
-File extensions are not part of the governed name under this specification.
-
-The grammar defined in this document governs only the base name
-(i.e., the identifier portion preceding any file extension).
-
-File extensions exist solely as a serialization indicator and
-correspond to the value declared in the ARTIFACT_FORMAT field of the
-deliverable header.
-
-Normative rules:
-
-• File extensions MUST NOT be treated as part of the artifact’s identity.
-• File extensions MUST NOT be used to infer authority, lifecycle,
-  ordering, evaluation, or semantic meaning.
-• File extensions MUST NOT be interpreted as carrying meaning beyond
-  the declared ARTIFACT_FORMAT.
-• This specification DOES NOT prescribe, restrict, or prohibit any
-  specific file extension.
-• Validation of correspondence between ARTIFACT_FORMAT and file
-  extension, if any, is out of scope for this specification.
-
-Tooling, automation, and LLMs MUST treat file extensions as
-non-authoritative representations of format and MUST rely on
-ARTIFACT_FORMAT as the sole declarative source of format information.
+File extensions are not part of the governed name.
 
 ────────────────────────────────────────
-NORMATIVE LANGUAGE
+INTERPRETATION
 ────────────────────────────────────────
 
-The key words “MUST”, “MUST NOT”, and “MAY” in this document are used to
-indicate normative requirements.
+Names are treated as opaque identifiers.
 
-Normative statements are binding.
-All other text is explanatory and non-normative.
+Tooling, automation, and LLMs MUST NOT infer meaning, intent, authority,
+lifecycle, correctness, or provenance from names.
 
-────────────────────────────────────────
-UNIQUENESS & COLLISIONS
-────────────────────────────────────────
-
-Names governed by this specification MUST be unique within their
-governed repository context.
-
-A name collision MUST be treated as a structural failure.
-
-Normative rules:
-
-• File and directory names MUST NOT collide.
-• Suffix-based disambiguation (including numeric, semantic, or
-  cosmetic suffixes) is forbidden.
-• A collision indicates an invalid structural state in which the
-  same name is assigned more than once.
-
-Collision Resolution Semantics:
-
-• When a collision occurs, creation of a new name MUST STOP.
-• The pre-existing name takes precedence by default.
-• Resolution MUST occur by:
-  – modifying the existing named artifact via explicit commit, OR
-  – abandoning the attempted creation.
-
-Creation of parallel names to resolve collisions is forbidden.
-
-Collision resolution is a governance-relevant structural decision and
-MUST be explicitly recorded through commit history.
+Human interpretation carries no operational effect.
 
 ────────────────────────────────────────
-HUMAN VS MACHINE INTERPRETATION
+VALIDITY & FAILURE
 ────────────────────────────────────────
 
-Names governed by this specification MAY carry meaning or descriptive
-value for human authors.
+Validity is mechanically decidable by this grammar alone.
 
-Human interpretation of names is permitted but carries no authority.
+Any name that violates this specification is invalid.
 
-Normative rules:
+Upon invalidity:
+• Execution MUST STOP
+• Failure MUST be explicit
+• No fallback or recovery is permitted
 
-• Tooling, automation, and LLMs MUST treat all names as declarative
-  inputs with no intrinsic meaning.
-• Tooling MUST NOT infer intent, authority, lifecycle, behavior,
-  correctness, or acceptance from names.
-• Tooling MUST rely exclusively on explicitly declared artifacts
-  (including headers, specifications, and governance rules).
-• Human intent encoded in names has no machine-interpreted authority.
-
-Ambiguity Tolerance:
-
-• Human-facing ambiguity is permitted if and only if the name is
-  mechanically well-formed and does not violate this grammar.
-• Machine-facing ambiguity is forbidden.
-• If a machine cannot determine validity or behavior using explicit
-  governing artifacts alone, execution MUST STOP.
-
-Grammar governs form only.
-Meaning exists solely for human comprehension and has no operational
-effect unless explicitly declared elsewhere.
+There is no partial validity.
 
 ────────────────────────────────────────
-GRAMMAR VS STYLE & AMBIGUITY HANDLING
+END
 ────────────────────────────────────────
-
-This specification defines a grammar, not a style guide.
-
-All rules defined herein are strictly normative.
-
-There is no advisory, optional, stylistic, or preference-based layer.
-
-Normative rules:
-
-• Any rule stated in this specification is mandatory.
-• There is no SHOULD or SHOULD NOT interpretation layer.
-• Any behavior not explicitly permitted by this grammar is forbidden.
-
-Grammar Execution Semantics:
-
-• Naming MUST be a purely mechanical task.
-• Validity MUST be determinable by rule application alone.
-• Judgment, taste, preference, intuition, or convention MUST NOT be used.
-• Multiple valid names do not constitute ambiguity.
-
-Ambiguity Handling (Normative):
-
-• Ambiguity exists only when it is impossible to determine validity
-  mechanically using this specification.
-• If ambiguity exists, execution MUST STOP immediately.
-• Ambiguity MUST result in a loud failure.
-• Ambiguity MUST NOT be resolved by interpretation or best judgment.
-• Upon ambiguity, the executor MUST notify the EMITTER of this
-  specification.
-
-Ambiguity indicates one of the following conditions:
-
-• The grammar is underspecified, OR
-• A new requirement exists that cannot be expressed using the
-  current grammar.
-
-Naming MUST NOT proceed until the specification is amended by
-explicit commit.
-
-Examples, if present elsewhere, are illustrative only and MUST NOT
-be treated as permissive or authoritative.
-
-────────────────────────────────────────
-FAILURE MODE & ENFORCEMENT
-────────────────────────────────────────
-
-This specification defines strict, binary enforcement semantics.
-
-Any violation of this grammar constitutes an invalid artifact.
-
-Normative rules:
-
-• Any file or directory name that does not conform to this specification
-  MUST be rejected immediately.
-• Rejection MUST be loud and explicit.
-• Silent failure, warning-only behavior, or permissive fallback
-  is forbidden.
-• There is no concept of partial validity or best-effort acceptance.
-• Enforcement is immediate at the point of detection.
-
-LLM and Automation Constraints:
-
-• LLMs and automated systems participating in name or header generation
-  MUST treat this specification as binding.
-• If an LLM cannot generate a name or header that fully conforms to this
-  specification, it MUST fail loudly.
-• LLMs MUST NOT emit partial, speculative, inferred, or best-guess output
-  for governed names.
-• Emission of a nonconforming name or header is forbidden.
-
-Correctness under this specification is binary:
-
-• A name is either well-formed or ill-formed.
-• There is no degraded, provisional, or advisory state.
-
-Failure MUST halt execution until corrected.
-
-────────────────────────────────────────
-NAMING VS PLACEMENT BOUNDARY
-────────────────────────────────────────
-
-This specification governs naming grammar only.
-
-Placement of files and directories is governed by separate,
-explicit placement specifications.
-
-Normative rules:
-
-• Grammar and placement are distinct and non-overlapping concerns.
-• Grammar governs admissible form of names only.
-• Placement governs location only.
-• Grammar MUST NOT reference placement outcomes.
-• Placement rules MUST NOT reinterpret or override grammar.
-• There is no precedence between grammar and placement.
-
-Conflict Handling:
-
-• If grammar and placement rules conflict, execution MUST STOP.
-• Any uncertainty about whether a rule belongs to grammar or placement
-  constitutes a specification failure.
-• Conflicts MUST NOT be resolved by convention, intuition, or
-  implementation discretion.
-
-Cross-layer inference is forbidden.
-
-Resolution of grammar–placement conflicts requires explicit
-specification amendment by commit.
-
-────────────────────────────────────────
-EXAMPLES & TEST VECTORS (NON-NORMATIVE)
-────────────────────────────────────────
-
-This section provides illustrative examples of valid and invalid names
-under this specification.
-
-This section is NON-NORMATIVE.
-
-Examples do not introduce exceptions, interpretations, or additional
-rules. The grammar defined in this specification remains the sole
-authority.
-
-────────────────────────────────────────
-VALID NAME EXAMPLES
-────────────────────────────────────────
-
-The following names are mechanically well-formed under this grammar:
-
-• FILE_DIRECTORY_NAMING_GRAMMAR
-• CORE_INVARIANT_SET
-• ARTIFACT_METADATA
-• GOVERNANCE_RULES
-
-────────────────────────────────────────
-INVALID NAME EXAMPLES
-────────────────────────────────────────
-
-The following names are ill-formed and MUST be rejected:
-
-• file_directory_naming_grammar  
-  – invalid: lowercase letters forbidden (Character Set and Casing)
-
-• FINAL_SPEC  
-  – invalid: lifecycle semantics forbidden (Semantic Constraints)
-
-• CORE_V2  
-  – invalid: ordering or versioning semantics forbidden
-    (Semantic Constraints)
-
-• OFFICIAL_RULES  
-  – invalid: authority semantics forbidden (Semantic Constraints)
-
-• GOOD_NAME  
-  – invalid: evaluative semantics forbidden (Semantic Constraints)
-
-• CORE-INVARIANT-SET  
-  – invalid: non-permitted characters forbidden
-    (Character Set and Casing)
-
-• CO  
-  – invalid: minimum length requirement not met
-    (Length Constraints)
-
-────────────────────────────────────────
-MIGRATION & LEGACY
-────────────────────────────────────────
-
-There is no legacy exemption under this specification.
-
-All pre-existing files and directories MUST be updated to conform to
-this grammar in order to exist within governed repositories.
-
-Migration consists solely of normalization to the current specification.
-There is no compatibility mode and no grandfathering.
-
-Any file or directory that does not conform is not admissible.
