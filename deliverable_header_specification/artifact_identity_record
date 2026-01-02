@@ -145,8 +145,7 @@ No fallback, inference, or recovery behavior is permitted.
 REQUIRED IDENTITY FIELDS
 ────────────────────────────────────────
 
-All deliverable artifacts MUST include all of the following fields.
-
+The IDENTITY.txt MUST include all of the following fields.
 
 EMITTER
 -------
@@ -178,10 +177,6 @@ ARTIFACT_DOMAIN:
 ARTIFACT_DOMAIN values are opaque labels governed externally.
 
 This field may be referenced by routing rules.
-Omission is permitted only for legacy deliverable artifacts created
-before adoption of this specification; newly created artifacts are
-expected to include this field.
-
 
 ARTIFACT_FUNCTION
 -----------------
@@ -225,10 +220,6 @@ ARTIFACT_ID:
 ARTIFACT_ID is the sole source of truth for artifact identity.
 
 This field may be referenced by routing or naming rules.
-Omission is permitted only for legacy deliverable artifacts created
-before adoption of this specification; newly created artifacts are
-expected to include this field.
-
 
 ARTIFACT_FORMAT
 ---------------
