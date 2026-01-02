@@ -66,18 +66,47 @@ Reuse outside deliverable artifacts requires explicit declaration elsewhere.
 HEADER STRUCTURE (NORMATIVE)
 ────────────────────────────────────────
 
-All deliverable artifacts MUST include an explicit header block delimited by:
+The deliverable header is a standalone structural file.
+
+Each deliverable artifact directory MUST contain exactly one file named:
+
+HEADER.txt
+
+HEADER.txt contains the complete deliverable header and nothing else.
+
+The header within HEADER.txt MUST be delimited by:
 
 <DELIVERABLE_HEADER>
 </DELIVERABLE_HEADER>
 
-All header fields MUST appear within this block.
+All required and optional header fields MUST appear within this block.
 
-The deliverable body consists of all content following the closing
-</DELIVERABLE_HEADER> tag.
+No deliverable header content may appear outside HEADER.txt.
+Embedding headers within artifact body files is prohibited.
 
-No other markers are required to establish the header/body boundary.
+────────────────────────────────────────
+HEADER DISCOVERY & STRUCTURAL FAILURE
+────────────────────────────────────────
 
+Header discovery is purely structural.
+
+Tooling and orchestration MUST locate the deliverable header by resolving
+HEADER.txt within the artifact directory.
+
+Tooling MUST NOT:
+• parse artifact body files for header content
+• inspect filenames other than HEADER.txt for header discovery
+• infer header presence from partial, embedded, or duplicated content
+
+Structural failure is loud and terminal.
+
+A deliverable artifact is non-conforming if:
+• HEADER.txt is missing
+• more than one HEADER.txt exists
+• HEADER.txt does not contain exactly one <DELIVERABLE_HEADER> block
+• the header block is malformed or ambiguous
+
+No fallback, inference, or recovery behavior is permitted.
 
 ────────────────────────────────────────
 REQUIRED HEADER FIELDS
