@@ -93,15 +93,9 @@ responsible for enforcing this constraint.
 APPLICABILITY
 ────────────────────────────────────────
 
-This specification applies only to artifacts designated as deliverables
-within a delegated execution scope.
+This specification applies only to artifacts designated as deliverables.
 
-It does not replace or override:
-• ledger identity records
-• protocol identity records
-• governance artifacts
-
-Reuse outside deliverable artifacts requires explicit declaration elsewhere.
+It does not replace or override invariant sets.
 
 ────────────────────────────────────────
 IDENTITY STRUCTURE (NORMATIVE)
