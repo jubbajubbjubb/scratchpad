@@ -175,6 +175,28 @@ This commit is structural and declarative only.
 
 <COMMIT_TASK>
 
+## COMMIT 7.1 — TERMINOLOGY RECONCILIATION (HEADER → IDENTITY)
+
+Complete the structural rename by reconciling all residual “header”
+terminology with the Artifact Identity Record model.
+
+This commit:
+• Replaces remaining uses of “header” with “identity” where referring
+  to the structural record
+• Updates section titles, narrative text, and failure descriptions to
+  consistently reflect IDENTITY semantics
+• Removes mixed or contradictory terminology that could reintroduce an
+  embedded-header mental model
+• Introduces no new fields, rules, envelope tags, or enforcement logic
+
+This commit is a scrub-and-reconciliation pass only.
+No new concepts are introduced.
+
+</COMMIT_TASK>
+
+
+<COMMIT_TASK>
+
 ## COMMIT 8 — ENVELOPE TAG RENAME (<DELIVERABLE_HEADER> → <IDENTITY>)
 
 Rename the identity envelope tags used within the structural file.
