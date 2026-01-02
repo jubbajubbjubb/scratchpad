@@ -59,7 +59,7 @@ ARTIFACT IDENTITY VS STRUCTURAL CONTAINER
 
 A deliverable artifact consists of exactly one artifact body file.
 
-The artifact body file is the artifact itself.
+The artifact body file contains the artifact’s content.
 
 The artifact directory is a structural container that exists to support:
 • deterministic placement
@@ -70,7 +70,7 @@ This specification governs the structural container and its associated
 artifact identity record.
 
 It does not redefine artifact identity, which remains vested in the
-artifact body file.
+artifact itself.
 
 ────────────────────────────────────────
 ARTIFACT BODY FILE CARDINALITY
@@ -98,12 +98,11 @@ This specification applies only to artifacts designated as deliverables
 within a delegated execution scope.
 
 It does not replace or override:
-• ledger headers
-• protocol headers
+• ledger identity records
+• protocol identity records
 • governance artifacts
 
 Reuse outside deliverable artifacts requires explicit declaration elsewhere.
-
 
 ────────────────────────────────────────
 IDENTITY STRUCTURE (NORMATIVE)
