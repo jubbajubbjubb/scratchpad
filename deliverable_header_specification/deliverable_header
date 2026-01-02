@@ -2,8 +2,12 @@
 CONTENT
 ────────────────────────────────────────
 
-The following defines the complete contents of HEADER.txt
-for a deliverable artifact.
+This section defines the complete and only valid contents of the
+structural header file named HEADER.txt.
+
+HEADER.txt is a standalone structural file.
+It is not embedded within any artifact body.
+It contains no content other than the deliverable header.
 
 <DELIVERABLE_HEADER>
 
