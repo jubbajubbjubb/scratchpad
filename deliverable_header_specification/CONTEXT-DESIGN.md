@@ -21,6 +21,26 @@ emerging artifact ontology, necessitating a scoped design review.
 
 ## PREVIOUS ASSUMPTION (NOW INVALID)
 
+The Deliverable Header specification implicitly assumed an embedded-header
+model.
+
+Under this assumption, a deliverable artifact was treated as a single
+file containing both header and body content, with the header appearing
+as a structured block at the beginning of the artifact.
+
+Header/body separation was established textually through explicit
+delimiters, and discovery of header information required parsing the
+artifact content itself.
+
+This model further implied that:
+- deliverable artifacts are file-scoped rather than directory-scoped,
+- header presence is enforced through content structure rather than
+  placement,
+- and artifact bodies are expected to be inspected to access metadata.
+
+This assumption was not explicitly declared, but was reflected throughout
+the specification language and examples.
+
 
 ## NEWLY EXPLICIT TRUTH
 
