@@ -159,7 +159,7 @@ Finalize all deliverable header fields.
 This commit:
 • Resolves placeholder values
 • Binds final identity and context
-• Marks the artifact as complete and canonical
+• Marks the artifact as complete and deployable
 
 No further mutation occurs without a new lifecycle iteration.
 
