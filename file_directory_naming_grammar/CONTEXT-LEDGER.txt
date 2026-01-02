@@ -84,3 +84,12 @@ No change made to this specification may:
 - Soften failure semantics
 
 All fixes are **reconciliation**, not invention.
+
+### Goals for FILE_DIRECTORY_NAMING_GRAMMAR (post-decision)
+
+- Govern **name form only**, not meaning, identity, or lineage
+- Eliminate all derivation- or process-related semantics
+- Preserve strict, mechanically checkable constraints
+- Avoid introducing any shadow identity or inference surface
+- Ensure the grammar remains complete and self-sufficient
+
