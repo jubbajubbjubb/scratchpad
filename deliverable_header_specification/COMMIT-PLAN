@@ -2,28 +2,185 @@
 
 ## PURPOSE
 
+This commit plan defines a controlled, auditable sequence of commits to
+correct the Deliverable Header specification so that it accurately
+reflects a directory-scoped artifact model.
+
+The plan exists to ensure that ontology corrections are applied
+mechanically, without inference, drift, or accidental expansion of
+scope.
+
+
 ## SCOPE OF CHANGE
+
+This plan governs changes to the Deliverable Header specification only.
+
+The scope includes:
+• Correcting embedded-header assumptions
+• Making directory-scoped artifact identity explicit
+• Defining header placement and discovery structurally
+• Removing language that implies artifact body parsing
+
+No other specifications, grammars, invariants, protocols, or placement
+rules are modified by this plan.
+
 
 ## IN-SCOPE ASSUMPTIONS
 
+The following assumptions are explicitly declared and binding for this
+plan:
+
+• Deliverable artifacts are directory-scoped units.
+• Each artifact directory contains exactly one deliverable header.
+• The deliverable header exists as a standalone file named `HEADER.txt`.
+• Header discovery is performed by deterministic filename lookup.
+• Artifact bodies are opaque and MUST NOT be parsed for metadata.
+• Existing header fields retain their semantic intent as declarative
+  fact surfaces only.
+
+These assumptions are treated as explicit truth for the duration of
+this plan.
+
+
 ## OUT-OF-SCOPE ASSUMPTIONS
+
+The following topics are explicitly out of scope and MUST NOT be
+introduced during execution:
+
+• Naming grammar changes
+• Artifact body naming rules
+• Enforcement mechanisms or tooling behavior
+• Orchestration logic
+• Repository topology changes
+• Migration strategies beyond acknowledgment
+• Reservation of structural tokens beyond escalation notes
+• Convenience or backward-compatibility accommodations
+
+Any requirement touching these areas MUST halt execution and trigger a
+separate design pass.
+
 
 ## COMMIT SEQUENCE OVERVIEW
 
+This plan is executed as a linear sequence of self-contained commits.
+
+Each commit:
+• Has a single responsibility
+• Introduces no hidden dependencies
+• Can be reviewed and reasoned about in isolation
+
+Later commits MUST NOT rely on unstated intent from earlier commits.
+
+
 ## COMMIT 1 — HEADER INITIALIZATION
+
+Initialize a standalone `HEADER.txt` file for the Deliverable Header
+specification.
+
+This commit:
+• Establishes the artifact’s structural presence in GitHub
+• Uses best-effort, non-committal identity values
+• Leaves unresolved fields explicitly marked as placeholders
+
+No specification content is introduced in this commit.
+
 
 ## COMMIT 2 — ONTOLOGY CORRECTION (DIRECTORY-SCOPED MODEL)
 
+Introduce explicit language stating that deliverable artifacts are
+directory-scoped units rather than single files.
+
+This commit:
+• Corrects the implicit file-scoped ontology
+• Clarifies the role of `ARTIFACT_ID` as identifying a directory
+• Establishes header association via directory co-location
+• Makes no changes to header field definitions
+
+This commit introduces ontology clarification only.
+
+
 ## COMMIT 3 — HEADER STRUCTURE & DISCOVERY RULES
+
+Define the structural placement and discovery model for deliverable
+headers.
+
+This commit:
+• Specifies `HEADER.txt` as a fixed structural filename
+• States that headers are standalone artifacts
+• Prohibits parsing of artifact body content for header discovery
+• Defines loud failure conditions for missing or ambiguous headers
+
+No enforcement mechanisms are introduced.
+
 
 ## COMMIT 4 — EMBEDDED-HEADER LANGUAGE REMOVAL
 
+Remove or correct all language in the specification that assumes an
+embedded-header model.
+
+This commit:
+• Eliminates references to textual header boundaries
+• Removes language implying header/body cohabitation
+• Removes parsing-oriented phrasing
+• Preserves original semantic intent where applicable
+
+This commit is corrective and subtractive only.
+
+
 ## COMMIT 5 — SANITY & CONTINUITY CHECK
+
+Perform an internal coherence check on the updated specification.
+
+This commit:
+• Verifies consistency across sections
+• Confirms no conflicting assumptions remain
+• Introduces no new concepts or rules
+• Makes no structural changes
+
+This is a validation-only pass.
+
 
 ## COMMIT 6 — FORMATTING PASS
 
+Apply formatting and presentation cleanup.
+
+This commit:
+• Improves readability only
+• Does not modify meaning or scope
+• Does not alter ontology or rules
+
+Correctness MUST already be resolved before this commit.
+
+
 ## FINAL COMMIT — HEADER FINALIZATION
+
+Finalize all deliverable header fields.
+
+This commit:
+• Resolves placeholder values
+• Binds final identity and context
+• Marks the artifact as complete and canonical
+
+No further mutation occurs without a new lifecycle iteration.
+
 
 ## EXECUTION NOTES
 
+Execution of this plan MUST follow the Human-Mediated Mechanical
+Application (HMMA) process.
+
+All changes MUST be applied verbatim as emitted.
+Any ambiguity, mismatch, or conflict MUST halt execution immediately.
+
+
 ## STOP CONDITIONS
+
+Execution MUST STOP if:
+
+• A required change exceeds the declared scope
+• A conflict with another specification is discovered
+• An unstated assumption becomes necessary
+• Mechanical execution cannot be performed exactly
+• A decision is required that is not explicitly declared
+
+Stopping is the correct outcome in all such cases.
