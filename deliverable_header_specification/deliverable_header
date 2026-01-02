@@ -48,6 +48,24 @@ Tooling MUST treat all header values as declarative inputs and MUST NOT
 infer intent, authority, behavior, or lifecycle semantics beyond what is
 explicitly specified by governing artifacts.
 
+────────────────────────────────────────
+ARTIFACT IDENTITY VS STRUCTURAL CONTAINER
+────────────────────────────────────────
+
+A deliverable artifact consists of exactly one artifact body file.
+
+The artifact body file is the artifact itself.
+
+The artifact directory is a structural container that exists to support:
+• deterministic placement
+• deliverable header association
+• structural discovery
+
+This specification governs the structural container and its associated
+deliverable header.
+
+It does not redefine artifact identity, which remains vested in the
+artifact body file.
 
 ────────────────────────────────────────
 APPLICABILITY
