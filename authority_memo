@@ -1,0 +1,112 @@
+NON-AUTHORITATIVE MEMO
+Purpose: Clarify the functional distinction between AUTHORITY_POLICY and POLICY
+Status: Informational only. Not binding. Not canonical.
+
+────────────────────────────────────────
+Conceptual Comparison
+────────────────────────────────────────
+
+Question being answered                  AUTHORITY_POLICY     POLICY
+────────────────────────────────────────────────────────────────────
+Who is allowed to act at all?                  ✅               ❌
+Who may create / amend other policies?         ✅               ❌
+Who may declare or modify domains?             ✅               ❌
+Who may exercise governance power?             ✅               ❌
+
+Does this rule still matter
+before any action happens?                     ✅               ❌
+
+Does this rule define how something is done?    ❌               ✅
+Does this rule define format,
+steps, grammar, or procedure?                  ❌               ✅
+Does this rule assume authority already exists?❌               ✅
+Does this rule describe behavior
+that can be executed?                          ❌               ✅
+
+Does violation mean
+“you were never allowed to do this”?            ✅               ❌
+Does violation mean
+“you did it wrong”?                            ❌               ✅
+
+
+────────────────────────────────────────
+Interpretive Notes (Non-Normative)
+────────────────────────────────────────
+
+• AUTHORITY_POLICY answers questions of *standing*.
+  It determines whether an action can exist at all.
+
+• POLICY answers questions of *execution*.
+  It determines whether an allowed action was performed correctly.
+
+• AUTHORITY_POLICY operates before behavior.
+• POLICY operates during or after behavior.
+
+• AUTHORITY_POLICY failures are existential.
+• POLICY failures are procedural.
+
+• POLICY is meaningless without pre-existing authority.
+• AUTHORITY_POLICY is meaningful even in the absence of action.
+
+────────────────────────────────────────
+Usage Guidance (Informational)
+────────────────────────────────────────
+
+When confused about classification, ask:
+
+1. “Is this deciding who may act?”
+   → AUTHORITY_POLICY
+
+2. “Is this deciding how an allowed act is performed?”
+   → POLICY
+
+If both seem true, the artifact is likely improperly conflated
+and should be split rather than debated.
+
+QUESTION: Who is allowed to act at all?
+AUTHORITY_POLICY: YES
+POLICY: NO
+
+QUESTION: Who may create or amend other policies?
+AUTHORITY_POLICY: YES
+POLICY: NO
+
+QUESTION: Who may declare or modify domains?
+AUTHORITY_POLICY: YES
+POLICY: NO
+
+QUESTION: Who may exercise governance power?
+AUTHORITY_POLICY: YES
+POLICY: NO
+
+QUESTION: Does this rule still matter before any action happens?
+AUTHORITY_POLICY: YES
+POLICY: NO
+
+QUESTION: Does this rule define how something is done?
+AUTHORITY_POLICY: NO
+POLICY: YES
+
+QUESTION: Does this rule define format, steps, grammar, or procedure?
+AUTHORITY_POLICY: NO
+POLICY: YES
+
+QUESTION: Does this rule assume authority already exists?
+AUTHORITY_POLICY: NO
+POLICY: YES
+
+QUESTION: Does this rule describe behavior that can be executed?
+AUTHORITY_POLICY: NO
+POLICY: YES
+
+QUESTION: Does violation mean “you were never allowed to do this”?
+AUTHORITY_POLICY: YES
+POLICY: NO
+
+QUESTION: Does violation mean “you did it wrong”?
+AUTHORITY_POLICY: NO
+POLICY: YES
+
+────────────────────────────────────────
+End of Memo
+────────────────────────────────────────
