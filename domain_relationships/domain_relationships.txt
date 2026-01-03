@@ -1,0 +1,151 @@
+NON-AUTHORITATIVE MEMO
+Purpose: Propose and justify two governance artifacts required to define
+         domain containment and domain relationships.
+Status: Informational only. Not binding. Not canonical.
+Audience: Future governance-authoritative chat (e.g., another ZERO instance)
+Scope: Logical scaffolding and artifact proposals only.
+
+────────────────────────────────────────
+BACKGROUND CONTEXT
+────────────────────────────────────────
+
+The system distinguishes between:
+
+• Structural axioms (rules that must always be true)
+• Registries (records of what is currently true)
+
+Earlier confusion arose from attempting to encode both concepts in a
+single artifact. This memo separates them explicitly.
+
+Key realization:
+Domain containment and domain relationships are different categories of fact
+and therefore require different artifact types.
+
+────────────────────────────────────────
+ARTIFACT PROPOSAL 1
+────────────────────────────────────────
+
+Name (proposed):
+CORE_DOMAIN_CONTAINMENT_POLICY
+
+Artifact Class:
+GOVERNANCE / POLICY (structural, axiomatic)
+
+Purpose:
+Declare the universal containment rule that governs all domains.
+
+Logical Justification:
+
+• CORE is the foundational domain.
+• All other domains exist only within CORE validity.
+• CORE invariants apply to every domain, regardless of domain hierarchy.
+• This rule must hold even if:
+  – no domains are registered
+  – the domain registry is empty
+  – the domain registry changes over time
+
+Therefore:
+This rule must NOT be expressed as a registry entry and must NOT depend
+on enumerated domains.
+
+What This Artifact Declares:
+
+• All domains are subsets of CORE.
+• No domain exists outside CORE validity.
+• CORE invariants apply universally.
+
+What This Artifact Does NOT Do:
+
+• Does not list domains.
+• Does not encode relationships between non-core domains.
+• Does not change as domains are added, removed, or renamed.
+
+Reason This Must Be Its Own Artifact:
+
+• Treats containment as law, not data.
+• Prevents accidental invalidation through registry edits.
+• Allows registries to evolve without undermining foundational validity.
+
+────────────────────────────────────────
+ARTIFACT PROPOSAL 2
+────────────────────────────────────────
+
+Name (proposed):
+DOMAIN_RELATIONSHIP_REGISTRY
+
+Artifact Class:
+GOVERNANCE / REGISTRY (descriptive, mutable)
+
+Purpose:
+Maintain an explicit record of declared domains and their relationships.
+
+Logical Justification:
+
+• Domains are created, modified, and deprecated over time.
+• Relationships between domains are not axiomatic; they are factual.
+• An orchestrator must be able to discover:
+  – which domains exist
+  – how domains relate (parent, peer, subdomain)
+• These facts must be:
+  – explicit
+  – inspectable
+  – versioned through commits
+
+Therefore:
+Domain relationships must be recorded in a mutable registry artifact.
+
+What This Artifact Declares:
+
+• The existence of domains.
+• The relationships between domains (e.g., parent-child).
+• The current topology of domains within CORE.
+
+What This Artifact Does NOT Do:
+
+• Does not define CORE.
+• Does not grant authority.
+• Does not define invariant semantics.
+• Does not override CORE containment.
+
+Reason This Must Be Separate from CORE Containment:
+
+• Allows domain topology to evolve safely.
+• Prevents registry edits from affecting foundational rules.
+• Keeps axioms stable and registries flexible.
+
+────────────────────────────────────────
+INTENDED SYSTEM BEHAVIOR
+────────────────────────────────────────
+
+An orchestrator or governance agent uses:
+
+• CORE_DOMAIN_CONTAINMENT_POLICY
+  to answer validity questions:
+  “Does this domain fall under CORE rules?”
+
+• DOMAIN_RELATIONSHIP_REGISTRY
+  to answer topology questions:
+  “What domains exist and how do they relate?”
+
+No inference between these artifacts is permitted.
+Each serves a distinct, non-overlapping purpose.
+
+────────────────────────────────────────
+RATIONALE FOR SEPARATION
+────────────────────────────────────────
+
+Combining these artifacts would:
+
+• Collapse axioms into data
+• Make foundational rules mutable
+• Force inference where declaration is required
+
+Separating them ensures:
+
+• Stability of foundational constraints
+• Safe evolution of domain topology
+• Clear reasoning boundaries for humans and machines
+
+────────────────────────────────────────
+END OF MEMO
+────────────────────────────────────────
